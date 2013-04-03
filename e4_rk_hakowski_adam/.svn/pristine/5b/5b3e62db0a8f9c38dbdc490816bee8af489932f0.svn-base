@@ -1,0 +1,23 @@
+/********************************************//**
+ * \file   pasanger.h
+ * \brief  Definicja obiektu pasazera.
+ * \author Adam Hakowski (adam.hakowski@gmail.com)
+ * \date   2013-03-28
+ ***********************************************/
+#ifndef PASSENGER_H
+#define PASSENGER_H
+/////////////////////////////////////////////////
+/*! \brief Pasazer.
+ *
+ *	Implementacja pasazera.
+ *
+ */
+class Passsenger
+{
+public:
+	int a;
+	Passsenger();
+};
+/////////////////////////////////////////////////
+//***********************************************
+#endif /*PASSENGER_H*/

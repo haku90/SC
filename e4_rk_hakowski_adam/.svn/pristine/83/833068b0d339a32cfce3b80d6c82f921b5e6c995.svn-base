@@ -1,0 +1,22 @@
+/********************************************//**
+ * \file   hotel.h
+ * \brief  Definicja obiektu hotel.
+ * \author Adam Hakowski (adam.hakowski@gmail.com)
+ * \date   2013-03-28
+ ***********************************************/
+#ifndef HOTEL_H
+#define HOTEL_H
+/////////////////////////////////////////////////
+/*! \brief Hotel
+ *
+ *	Implementacja hotelu.
+ *
+ */
+class Hotel
+{
+public:
+	Hotel();
+};
+/////////////////////////////////////////////////
+//***********************************************
+#endif /*HOTEL_H*/
