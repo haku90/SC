@@ -33,5 +33,16 @@ void Bus::addPass(Passsenger *pPass)
 	lstPass.push_front(*pPass);
 	numOfbusy++;
 }
+//-----------------------------------------------
+void Bus::addGuest(Guest *pGuest)
+{
+	lstGuest.push_front(*pGuest);
+	numOfbusy++;
+}
+//-----------------------------------------------
+void Bus::clrBusy()
+{
+	numOfbusy=0;
+}
 /////////////////////////////////////////////////
 //***********************************************

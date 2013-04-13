@@ -16,10 +16,18 @@ class Hotel
 {
 public:
 	Hotel();
+	
+	friend class Guest;
 
-	queue<Guest> queGuest;		//!< Kolejka goœci.
+	priority_queue<Guest,vector<Guest>,double> queGuest;		//!< Priorytetowa kolejka goœci.
 
 	int getID(){return id;}		//!< zwraca numer hotelu Hotelu.
+
+	//! Uaktualnia iloœci osób na przystanku.
+	void updateNumOfWait(){numOfHotel=queGuest.size();}	
+
+	//! Dodanie goœci do kolejki.
+	void addGuest(Guest *pGuest){}
 
 private:
 

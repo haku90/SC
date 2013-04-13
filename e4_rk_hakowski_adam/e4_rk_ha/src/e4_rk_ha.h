@@ -20,12 +20,12 @@
 //-----------------------------------------------
 using namespace std;
 //-----------------------------------------------
+#include "clock.h"
 #include "passenger.h"
 #include "bus.h"
-#include "airport.h"
-#include "clock.h"
-#include "generator.h"
 #include "guest.h"
+#include "airport.h"
+#include "generator.h"
 #include "hotel.h"
 /////////////////////////////////////////////////
 //***********************************************

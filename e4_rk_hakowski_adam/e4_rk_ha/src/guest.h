@@ -15,12 +15,16 @@
 class Guest
 {
 public:
-	Guest();
+		//! Konstruktor, ustawia czas wstawienia do kolejki oraz czas w jakim goœæ musi trafiæ na lotnisko.
+		Guest(double timeTrip,double start);
+
+		//! Zwraca czas w jakim goœæ musi dotrzeæ na lotnisko.
+		double getTripTime(){return tripTime;}
 
 private:
-
-		double arrival;		//!< Czas wstawienia do kolejki.
 		double tripTime;	//!< Czas w jakim musi dotrzeæ na lotnisko.
+		double arrival;		//!< Czas wstawienia do kolejki.
+		
 
 };
 /////////////////////////////////////////////////

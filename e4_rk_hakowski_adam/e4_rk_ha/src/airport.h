@@ -19,16 +19,20 @@ class AirPort
 public:
 
 	AirPort();
-	
+
+	friend class Bus;
+	friend class Passsenger;
+
 	queue<Passsenger> quePass;			//!< Kolejka pasa¿erów.
 	queue<Bus> queBass;					//!< Kolejka autobusów.
 
-	void addPass(Passsenger *pPass);		//!< Dodanie pass do kolejki na lotnisku.
+	void addPass(Passsenger *pPass);	//!< Dodanie pass do kolejki na lotnisku.
 	void addBuss(Bus bus);				//!< Dodanie do kolejki autobusu.
-	void can();			
+		
 private:
 
 	int numOfBus;						//!< Iloœæ autobusów na lotnisku.
+	int numOfPass;						//!< Iloœæ pasa¿erów na przystanku.
 	
 };
 /////////////////////////////////////////////////

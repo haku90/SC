@@ -14,11 +14,14 @@ AirPort::AirPort(){}
 void AirPort::addPass(Passsenger *pPass)
 {
 	quePass.push(*pPass);
+	numOfPass=quePass.size();
 }
 //----------------------------------------------
 void AirPort::addBuss(Bus bus)
 {
+	bus.clrBusy();
 	queBass.push(bus);
+	numOfBus=queBass.size();
 }
 /////////////////////////////////////////////////
 //***********************************************

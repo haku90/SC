@@ -17,11 +17,12 @@ class Bus
 public:
 	Bus();
 	list<Passsenger> lstPass;			//!< Lista przechowuj¹ca pasa¿erów.
+	list<Guest> lstGuest;				//!< Lista przechowuj¹ca goœæi.
 
 	bool isFree();						//!< Czy s¹ wolne miejsca.
-	void addPass(Passsenger *pPass);		//!< Dodanie pasa¿era.
-
-
+	void addPass(Passsenger *pPass);	//!< Dodanie pasa¿era.
+	void addGuest(Guest *pGuest);		//!< Dodanie goœcia.
+	void clrBusy();						//!< Zeruje iloœæ zajêtych miejsc.
 
 private:
 
