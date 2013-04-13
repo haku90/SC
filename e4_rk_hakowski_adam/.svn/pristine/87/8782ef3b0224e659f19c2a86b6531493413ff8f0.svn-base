@@ -76,24 +76,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\airport.cpp" />
-    <ClCompile Include="src\bus.cpp" />
-    <ClCompile Include="src\clock.cpp" />
-    <ClCompile Include="src\e4_rk_ha.cpp" />
-    <ClCompile Include="src\generator.cpp" />
-    <ClCompile Include="src\guest.cpp" />
-    <ClCompile Include="src\hotel.cpp" />
-    <ClCompile Include="src\passenger.cpp" />
+    <ClCompile Include="airport.cpp" />
+    <ClCompile Include="bus.cpp" />
+    <ClCompile Include="clock.cpp" />
+    <ClCompile Include="e4_rk_ha.cpp" />
+    <ClCompile Include="generator.cpp" />
+    <ClCompile Include="guest.cpp" />
+    <ClCompile Include="hotel.cpp" />
+    <ClCompile Include="passenger.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\airport.h" />
-    <ClInclude Include="src\bus.h" />
-    <ClInclude Include="src\clock.h" />
-    <ClInclude Include="src\e4_rk_ha.h" />
-    <ClInclude Include="src\generator.h" />
-    <ClInclude Include="src\guest.h" />
-    <ClInclude Include="src\hotel.h" />
-    <ClInclude Include="src\passenger.h" />
+    <ClInclude Include="airport.h" />
+    <ClInclude Include="bus.h" />
+    <ClInclude Include="clock.h" />
+    <ClInclude Include="e4_rk_ha.h" />
+    <ClInclude Include="generator.h" />
+    <ClInclude Include="guest.h" />
+    <ClInclude Include="hotel.h" />
+    <ClInclude Include="passenger.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="doc\zad1.pdf" />
