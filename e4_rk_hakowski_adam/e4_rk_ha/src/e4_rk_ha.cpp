@@ -9,7 +9,7 @@
 int main(int argc, char *argv[])
 {
 	cout<<"...........Symulacja Cyfrowa............."<<endl;
-	
+	/*
 	AirPort ap;
 	Bus b1,b2,b3,b4,b5;
 	Hotel h1,h2,h3,h4;
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	cout<<"zajeta liczba miejsc w autobusie "<<b1.retNumOfBusy()<<endl;
 	h1.getOutPass(&b1);
 	cout<<"zajeta liczba miejsc w autobusie po opuszczeniu pasazerow do hotelu 1 "<<b1.retNumOfBusy()<<endl;
-	
+	*/
 	return 0;
 	
 }

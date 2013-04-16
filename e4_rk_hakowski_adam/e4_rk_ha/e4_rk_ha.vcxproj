@@ -96,7 +96,8 @@
     <ClInclude Include="src\passenger.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="doc\zad1.pdf" />
+    <None Include="doc\e4_rk_ha_z1.pdf" />
+    <None Include="doc\e4_rk_ha_z2.pdf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
