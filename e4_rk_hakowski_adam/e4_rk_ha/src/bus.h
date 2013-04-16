@@ -16,21 +16,26 @@ class Bus
 {
 public:
 	Bus();
-	list<Passsenger> lstPass;			//!< Lista przechowuj¹ca pasa¿erów.
-	list<Guest> lstGuest;				//!< Lista przechowuj¹ca goœæi.
+	list<Passsenger*> lstPass;				//!< Lista przechowuj¹ca pasa¿erów.
+	list<Guest*> lstGuest;					//!< Lista przechowuj¹ca goœæi.
 
-	bool isFree();						//!< Czy s¹ wolne miejsca.
-	void addPass(Passsenger *pPass);	//!< Dodanie pasa¿era.
-	void addGuest(Guest *pGuest);		//!< Dodanie goœcia.
-	void clrBusy();						//!< Zeruje iloœæ zajêtych miejsc.
+	bool isFree();							//!< Czy s¹ wolne miejsca.
+	void addPass(Passsenger *Pass);			//!< Dodanie pasa¿era.
+	void addGuest(Guest *pGuest);			//!< Dodanie goœcia.
+	void clrBusy();							//!< Zeruje iloœæ zajêtych miejsc.
+	void updateTime(double time);			//!< Ustawia aktualny czas podró¿y na przystanek.
+	//! Zwraca iloœæ miejsc zajêtych.
+	double retNumOfBusy(){return numOfbusy;}
+	//! Uaktualnia liczbê zajêtych miejsc.
+	void updateNumOfBusy(){numOfbusy=lstPass.size()+lstGuest.size();}
 
 private:
 
-	int numOfbusy;						//!< Iloœæ zajêtych miejsc.
-	int id;								//!< Numer autobusu.
-	double tripTime;					//!< Czas podró¿y na przystanek.
-	static const int numOfseats=15;		//!< Iloœæ siedzeñ.
-	static int numOfbus;				//!< Iloœæ autobusów.
+	int numOfbusy;							//!< Iloœæ zajêtych miejsc.
+	int id;									//!< Numer autobusu.
+	double tripTime;						//!< Czas podró¿y na przystanek.
+	static const int numOfseats=15;			//!< Iloœæ siedzeñ.
+	static int numOfbus;					//!< Iloœæ autobusów.
 };
 /////////////////////////////////////////////////
 //***********************************************

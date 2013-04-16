@@ -13,15 +13,27 @@ AirPort::AirPort(){}
 //-----------------------------------------------
 void AirPort::addPass(Passsenger *pPass)
 {
-	quePass.push(*pPass);
+	quePass.push(pPass);
 	numOfPass=quePass.size();
 }
 //----------------------------------------------
-void AirPort::addBuss(Bus bus)
+void AirPort::addBuss(Bus *pBus)
 {
-	bus.clrBusy();
-	queBass.push(bus);
+	pBus->clrBusy();
+	queBass.push(pBus);
 	numOfBus=queBass.size();
 }
+//----------------------------------------------
+
+void AirPort::transfer(Bus* bus)
+{
+	while(numOfPass!=0 && bus->isFree())
+	{
+		bus->addPass(quePass.front());
+		quePass.pop();
+		numOfPass=quePass.size();
+	}
+}
+
 /////////////////////////////////////////////////
 //***********************************************

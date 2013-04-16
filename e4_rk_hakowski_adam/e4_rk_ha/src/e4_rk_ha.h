@@ -20,10 +20,10 @@
 //-----------------------------------------------
 using namespace std;
 //-----------------------------------------------
+#include "guest.h"
 #include "clock.h"
 #include "passenger.h"
 #include "bus.h"
-#include "guest.h"
 #include "airport.h"
 #include "generator.h"
 #include "hotel.h"

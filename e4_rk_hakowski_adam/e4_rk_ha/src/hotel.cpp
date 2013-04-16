@@ -27,7 +27,7 @@ Hotel::Hotel()
 			break;
 		case 9:maxTimeTrip=25;
 			break;
-		defult: cout<<"bledne id hotelu"<<endl;
+		default: cout<<"bledne id hotelu"<<endl;
 			break;
 	
 		}
@@ -36,10 +36,42 @@ Hotel::Hotel()
 //-----------------------------------------------
 void Hotel::addGuest(Guest *pGuest)
 {
-	queGuest.push(*pGuest);
+	queGuest.push(pGuest);
 	updateNumOfWait();
 
 }
+//-----------------------------------------------
+void Hotel::getOutPass(Bus* pBus)
+{
+	
+	for(list<Passsenger*>::iterator it=pBus->lstPass.begin();it!=pBus->lstPass.end();)
+	{
+		if(it._Ptr->_Myval->getId()==getID())
+		{
+			Passsenger*temp=it._Ptr->_Myval;
+			it=pBus->lstPass.erase(it);
+			delete temp;
+		}	
+		else ++it;
+	}
+	pBus->updateNumOfBusy();
 
+	
+}
+//-----------------------------------------------
+void Hotel::transfer(Bus* pBus)
+{
+	
+	while(pBus->isFree() && queGuest.size()!=0)
+	{
+		
+		pBus->addGuest(queGuest.top());
+		queGuest.pop();
+		pBus->updateNumOfBusy();
+		
+	}
+	
+	
+}
 /////////////////////////////////////////////////
 //***********************************************

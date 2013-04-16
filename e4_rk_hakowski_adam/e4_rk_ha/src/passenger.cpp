@@ -8,9 +8,10 @@
 /////////////////////////////////////////////////
 
 //-----------------------------------------------
-Passsenger::Passsenger(double time)
+Passsenger::Passsenger(double time,int id)
 {
 	arrival=time;
+	destinationId=id;
 }
 
 

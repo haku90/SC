@@ -18,16 +18,29 @@ public:
 	Hotel();
 	
 	friend class Guest;
+	//! Funktor porównuj¹cy.
+	struct compare
+	{
+		bool operator ()(  Guest* g1, Guest* g2)
+		{
+			if (g1->getTripTime() > g2->getTripTime()) return true;
+			else return false;
+		}
+	};
 
-	priority_queue<Guest,vector<Guest>,double> queGuest;		//!< Priorytetowa kolejka goœci.
+	priority_queue<Guest*,vector<Guest*>,compare> queGuest;		//!< Priorytetowa kolejka goœci.
 
-	int getID(){return id;}		//!< zwraca numer hotelu Hotelu.
+	int getID(){return id;}										//!< zwraca numer hotelu Hotelu.
 
 	//! Uaktualnia iloœci osób na przystanku.
 	void updateNumOfWait(){numOfHotel=queGuest.size();}	
 
 	//! Dodanie goœci do kolejki.
-	void addGuest(Guest *pGuest){}
+	void addGuest(Guest* pGuest);
+	//! Wysiadanie pasa¿era z autobusu.
+	void getOutPass(Bus* pBus);
+	//! Przeniesienie Goœci z hotelu do autobusu.
+	void transfer(Bus* pBus);
 
 private:
 

@@ -19,12 +19,11 @@ public:
 
 	Clock();
 
-	void updateTime();					//<! Uaktualnia czas systemu.
+	
 
 private:
 
-	static double timeEvents[9];		//<! Tablica zdarzeñ czasowych.	
-	double time;						//<! Aktualny czas w systemie.
+	
 
 
 };

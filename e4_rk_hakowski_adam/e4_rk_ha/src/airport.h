@@ -23,12 +23,13 @@ public:
 	friend class Bus;
 	friend class Passsenger;
 
-	queue<Passsenger> quePass;			//!< Kolejka pasa¿erów.
-	queue<Bus> queBass;					//!< Kolejka autobusów.
+	queue<Passsenger*> quePass;			//!< Kolejka pasa¿erów.
+	queue<Bus*> queBass;				//!< Kolejka autobusów.
 
 	void addPass(Passsenger *pPass);	//!< Dodanie pass do kolejki na lotnisku.
-	void addBuss(Bus bus);				//!< Dodanie do kolejki autobusu.
-		
+	void addBuss(Bus *pBus);			//!< Dodanie do kolejki autobusu.
+	//! Za³adowanie pasa¿erów z kolejki na lotnisku do autobusu.
+	void transfer(Bus* bus);			
 private:
 
 	int numOfBus;						//!< Iloœæ autobusów na lotnisku.

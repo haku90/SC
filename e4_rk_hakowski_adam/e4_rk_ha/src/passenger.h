@@ -16,7 +16,7 @@ class Passsenger
 {
 public:
 
-	Passsenger(double time);
+	Passsenger(double time, int id);
 
 	int getId(){ return destinationId;} //!< Zwraca ID hotelu do którego ma siê udaæ pasa¿er.
 	

@@ -7,8 +7,6 @@
 #include "e4_rk_ha.h"
 /////////////////////////////////////////////////
 int Bus::numOfbus=0;
-
-
 //-----------------------------------------------
 Bus::Bus()
 {
@@ -18,6 +16,8 @@ Bus::Bus()
 		tripTime=NULL;
 		cout<<"nie mozna utworzyc wiecej niz 5 autobusow"<<endl;
 	}
+	numOfbusy=0;
+	
 }
 //-----------------------------------------------
 bool Bus::isFree()
@@ -30,19 +30,24 @@ bool Bus::isFree()
 //-----------------------------------------------
 void Bus::addPass(Passsenger *pPass)
 {
-	lstPass.push_front(*pPass);
+	lstPass.push_front(pPass);
 	numOfbusy++;
 }
 //-----------------------------------------------
 void Bus::addGuest(Guest *pGuest)
 {
-	lstGuest.push_front(*pGuest);
+	lstGuest.push_front(pGuest);
 	numOfbusy++;
 }
 //-----------------------------------------------
 void Bus::clrBusy()
 {
 	numOfbusy=0;
+}
+//-----------------------------------------------
+void Bus::updateTime(double time)
+{
+	tripTime=time;
 }
 /////////////////////////////////////////////////
 //***********************************************
