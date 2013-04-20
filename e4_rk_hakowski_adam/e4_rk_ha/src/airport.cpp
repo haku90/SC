@@ -19,6 +19,12 @@ void AirPort::addPass(Passsenger *pPass)
 //----------------------------------------------
 void AirPort::addBuss(Bus *pBus)
 {
+	for (list<Guest*>::iterator it=pBus->lstGuest.begin();it!=pBus->lstGuest.end();)
+	{
+		Guest *temp=(*it);
+		it=pBus->lstGuest.erase(it);
+		delete temp;	
+	}
 	pBus->clrBusy();
 	queBass.push(pBus);
 	numOfBus=queBass.size();

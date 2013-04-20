@@ -9,7 +9,7 @@
 /////////////////////////////////////////////////
 /*! \brief Czas symulacyjny.
  *
- *	Implementacja hotelu.
+ *	Implementacja czasu.
  *
  */
 class Clock
@@ -23,6 +23,7 @@ public:
 
 private:
 
+	double time; //!< Aktualny czas w systemie.
 	
 
 

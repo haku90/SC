@@ -46,9 +46,9 @@ void Hotel::getOutPass(Bus* pBus)
 	
 	for(list<Passsenger*>::iterator it=pBus->lstPass.begin();it!=pBus->lstPass.end();)
 	{
-		if(it._Ptr->_Myval->getId()==getID())
+		if((*it)->getId()==getID())
 		{
-			Passsenger*temp=it._Ptr->_Myval;
+			Passsenger*temp=(*it);
 			it=pBus->lstPass.erase(it);
 			delete temp;
 		}	

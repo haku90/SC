@@ -1,6 +1,6 @@
 /********************************************//**
  * \file   clock.cpp
- * \brief  Definicja obiektu hotel.
+ * \brief  Definicja obiektu czas.
  * \author Adam Hakowski (adam.hakowski@gmail.com)
  * \date   2013-03-21
  ***********************************************/

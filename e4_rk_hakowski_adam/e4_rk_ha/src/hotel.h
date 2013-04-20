@@ -17,13 +17,13 @@ class Hotel
 public:
 	Hotel();
 	
-	friend class Guest;
+	
 	//! Funktor porównuj¹cy.
 	struct compare
 	{
-		bool operator ()(  Guest* g1, Guest* g2)
+		bool operator ()(const  Guest* g1, Guest* g2)
 		{
-			if (g1->getTripTime() > g2->getTripTime()) return true;
+			if (g1->tripTime > g2->tripTime) return true;
 			else return false;
 		}
 	};

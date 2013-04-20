@@ -19,9 +19,7 @@ class AirPort
 public:
 
 	AirPort();
-
-	friend class Bus;
-	friend class Passsenger;
+	
 
 	queue<Passsenger*> quePass;			//!< Kolejka pasa¿erów.
 	queue<Bus*> queBass;				//!< Kolejka autobusów.

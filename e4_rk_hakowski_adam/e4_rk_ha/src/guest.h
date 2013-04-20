@@ -1,6 +1,6 @@
 /********************************************//**
  * \file   bus.h
- * \brief  Definicja obiektu autobus.
+ * \brief  Definicja obiektu goœæ.
  * \author Adam Hakowski (adam.hakowski@gmail.com)
  * \date   2013-03-28
  ***********************************************/
@@ -14,12 +14,14 @@
  */
 class Guest
 {
+	friend class Hotel;
 	
 public:
 		//! Konstruktor, ustawia czas wstawienia do kolejki oraz czas w jakim goœæ musi trafiæ na lotnisko.
 		Guest(double timeTrip,double start);
 		//! Zwraca czas w jakim goœæ musi dotrzeæ na lotnisko.
 		double getTripTime(){return tripTime;}
+		~Guest(){cout<<"usunieto goscia"<<endl;}
 private:
 
 		double tripTime;	//!< Czas w jakim musi dotrzeæ na lotnisko.

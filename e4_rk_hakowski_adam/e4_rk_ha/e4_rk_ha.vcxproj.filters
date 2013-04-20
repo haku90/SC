@@ -65,10 +65,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="doc\e4_rk_ha_z2.pdf">
+    <None Include="doc\e4_rk_ha_z1.pdf">
       <Filter>doc</Filter>
     </None>
-    <None Include="doc\e4_rk_ha_z1.pdf">
+    <None Include="doc\e4_rk_ha_z2.pdf">
       <Filter>doc</Filter>
     </None>
   </ItemGroup>
