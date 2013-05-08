@@ -12,20 +12,7 @@
  *	Implementacja hotelu.
  *
  */
-class AirPort;
-class Bus;
-extern Agenda ag;
-extern	AirPort ap;
-extern	Bus b1;
-extern Bus b2;
-extern Bus b3;
-extern Bus b4;
-extern Bus b5;
-extern Hotel h1;
-extern Hotel h2;
-extern Hotel h3;
-extern Hotel h4;
-class Hotel: public Process
+class Hotel
 {
 public:
 	Hotel();
@@ -56,9 +43,6 @@ public:
 	//! Przeniesienie Goœci z hotelu do autobusu.
 	void transfer(Bus* pBus);
 
-	void execute();
-
-	
 private:
 
 	int id;						//!< Identyfikator(numer) hotelu.

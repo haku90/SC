@@ -8,7 +8,6 @@
 #define E4_RK_HA_H
 //***********************************************
 /////////////////////////////////////////////////
-	
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -21,19 +20,14 @@
 //-----------------------------------------------
 using namespace std;
 //-----------------------------------------------
-
-#include "event.h"
 #include "guest.h"
+#include "clock.h"
 #include "passenger.h"
 #include "bus.h"
 #include "airport.h"
+#include "generator.h"
 #include "hotel.h"
 #include "rangen.h"
-//-----------------------------------------------
-
-
-
 /////////////////////////////////////////////////
 //***********************************************
 #endif /*E4_RK_HA_H */
-	

@@ -21,7 +21,7 @@ public:
 		Guest(double timeTrip,double start);
 		//! Zwraca czas w jakim goœæ musi dotrzeæ na lotnisko.
 		double getTripTime(){return tripTime;}
-	
+		~Guest(){cout<<"usunieto goscia"<<endl;}
 private:
 
 		double tripTime;	//!< Czas w jakim musi dotrzeæ na lotnisko.

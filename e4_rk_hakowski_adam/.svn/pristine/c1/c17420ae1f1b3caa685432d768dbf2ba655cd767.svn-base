@@ -1,0 +1,71 @@
+/********************************************//**
+ * \file   e4_rk_ha.cpp
+ * \brief  Symulacja Cyfrowa glowny program.
+ * \author Adam Hakowski (adam.hakowski@gmail.com)
+ * \date   2013-02-28
+ ***********************************************/
+#include "e4_rk_ha.h"
+/////////////////////////////////////////////////
+int main(int argc, char *argv[])
+{
+	cout<<"...........Symulacja Cyfrowa............."<<endl;
+	/*
+	AirPort ap;
+	Bus b1,b2,b3,b4,b5;
+	Hotel h1,h2,h3,h4;
+	
+	int i=0;
+	while(i<=1000)
+	{
+		
+		ap.addPass(new Passsenger(Normal(),6));
+		ap.addPass(new Passsenger(Normal(),6));
+		ap.addPass(new Passsenger(Normal(),6));
+		ap.addPass(new Passsenger(Normal(),7));
+		ap.addPass(new Passsenger(Normal(),8));
+		ap.addPass(new Passsenger(Normal(),9));
+		ap.addPass(new Passsenger(Normal(),9));
+		ap.addPass(new Passsenger(Normal(),9));
+		h1.addGuest(new Guest(Normal(),Normal()));
+		h2.addGuest(new Guest(Normal(),Normal()));
+		h3.addGuest(new Guest(Normal(),Normal()));
+		h4.addGuest(new Guest(Normal(),Normal()));
+		i++;
+		cout<<".";
+	}
+	ap.addBuss(&b2);
+	ap.addBuss(&b3);
+	ap.addBuss(&b4);
+	ap.addBuss(&b5);
+	for(int i=0;i<100;i++)
+	{
+	Bus* pbus=ap.queBass.front();
+	ap.queBass.pop();
+	ap.transfer(pbus);
+	h1.getOutPass(pbus);
+	h1.transfer(pbus);
+
+	h2.getOutPass(pbus);
+	h2.transfer(pbus);
+
+	h3.getOutPass(pbus);
+	h3.transfer(pbus);
+
+	h4.getOutPass(pbus);
+	h4.transfer(pbus);
+	cout<<".............Kolejna runda......."<<endl;
+	cout<<"miejsca zajête "<<pbus->retNumOfBusy()<<endl;
+	cout<<"w hotelu1 gosci "<<h1.getNumOfWait()<<endl;
+	cout<<"w hotelu2 gosci "<<h2.getNumOfWait()<<endl;
+	cout<<"w hotelu3 gosci "<<h3.getNumOfWait()<<endl;
+	cout<<"w hotelu4 gosci "<<h4.getNumOfWait()<<endl;
+	cout<<"pasazerow na lotnisku "<<ap.quePass.size()<<endl;
+	ap.addBuss(pbus);
+	}
+	
+	*/
+	return 0;
+	
+}
+/////////////////////////////////////////////////
+//***********************************************

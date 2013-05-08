@@ -12,8 +12,7 @@
  *	Implementacja Lotniska.
  *
  */
-
-class AirPort:public Process
+class AirPort
 {
 	
 
@@ -31,8 +30,6 @@ public:
 	void transfer(Bus* bus);	
 	//! Ustawienie flagi odjazdu.
 	void setStart(double time);
-
-	void execute();
 
 private:
 

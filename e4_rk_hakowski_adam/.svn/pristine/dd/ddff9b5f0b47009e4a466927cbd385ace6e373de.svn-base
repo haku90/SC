@@ -78,27 +78,26 @@
   <ItemGroup>
     <ClCompile Include="src\airport.cpp" />
     <ClCompile Include="src\bus.cpp" />
+    <ClCompile Include="src\clock.cpp" />
     <ClCompile Include="src\e4_rk_ha.cpp" />
-    <ClCompile Include="src\event.cpp" />
+    <ClCompile Include="src\generator.cpp" />
     <ClCompile Include="src\guest.cpp" />
     <ClCompile Include="src\hotel.cpp" />
     <ClCompile Include="src\passenger.cpp" />
-    <ClCompile Include="src\rangen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\airport.h" />
     <ClInclude Include="src\bus.h" />
+    <ClInclude Include="src\clock.h" />
     <ClInclude Include="src\e4_rk_ha.h" />
-    <ClInclude Include="src\event.h" />
+    <ClInclude Include="src\generator.h" />
     <ClInclude Include="src\guest.h" />
     <ClInclude Include="src\hotel.h" />
     <ClInclude Include="src\passenger.h" />
-    <ClInclude Include="src\rangen.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="doc\e4_rk_ha_z1.pdf" />
     <None Include="doc\e4_rk_ha_z2.pdf" />
-    <None Include="doxygen.cfg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

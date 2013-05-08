@@ -12,8 +12,7 @@
  *	Implementacja Lotniska.
  *
  */
-
-class AirPort:public Process
+class AirPort
 {
 	
 
@@ -28,18 +27,12 @@ public:
 	void addPass(Passsenger *pPass);	//!< Dodanie pass do kolejki na lotnisku.
 	void addBuss(Bus *pBus);			//!< Dodanie do kolejki autobusu.
 	//! Za³adowanie pasa¿erów z kolejki na lotnisku do autobusu.
-	void transfer(Bus* bus);	
-	//! Ustawienie flagi odjazdu.
-	void setStart(double time);
-
-	void execute();
-
+	void transfer(Bus* bus);			
 private:
 
 	int numOfBus;						//!< Iloœæ autobusów na lotnisku.
 	int numOfPass;						//!< Iloœæ pasa¿erów na przystanku.
-	bool start;							//!< Flaga czy autobus mo¿e odjechaæ.
-	double timeDepart;					//!< Czas odjazdu poprzedniego autobusu.
+	
 };
 /////////////////////////////////////////////////
 //***********************************************

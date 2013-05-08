@@ -7,15 +7,13 @@
 #include "e4_rk_ha.h"
 /////////////////////////////////////////////////
 int Hotel::numOfHotel=6;
-extern  double Clock;
 //-----------------------------------------------
 Hotel::Hotel()
 {
-	
 	numOfwait=0;
 	if(id>9)
 	{
-	cerr<<"Nie mozna utworzyæ wiêcej ni¿ 4 hotele"<<endl;
+	cout<<"Nie mozna utworzyæ wiêcej ni¿ 4 hotele"<<endl;
 	}
 	else{
 
@@ -34,9 +32,7 @@ Hotel::Hotel()
 			break;
 	
 		}
-		
 	}
-	
 }
 //-----------------------------------------------
 void Hotel::addGuest(Guest *pGuest)
@@ -76,30 +72,6 @@ void Hotel::transfer(Bus* pBus)
 		
 	}
 	updateNumOfWait();
-	
-}
-//-----------------------------------------------
-void Hotel::execute()
-{
-	bool active=true;
-	while (active)
-	{
-		switch(phase)
-		{
-		case 0:
-			/*sprawdzenie czy pasazer zdazy*/
-			activate(Exponential(10)+Clock);
-			phase=1;
-			active=false;
-			break;
-		case 1:
-			addGuest(new Guest((1.5*Uniform()+2)*60,Clock));
-			phase=0;
-			active=true;
-			break;
-
-		}
-	}
 	
 }
 /////////////////////////////////////////////////

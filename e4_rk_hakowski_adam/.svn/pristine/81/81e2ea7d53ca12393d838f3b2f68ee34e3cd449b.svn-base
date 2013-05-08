@@ -19,7 +19,13 @@
     <ClCompile Include="src\bus.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\clock.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
     <ClCompile Include="src\e4_rk_ha.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\generator.cpp">
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\guest.cpp">
@@ -34,9 +40,6 @@
     <ClCompile Include="src\rangen.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\event.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\airport.h">
@@ -45,7 +48,13 @@
     <ClInclude Include="src\bus.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\clock.h">
+      <Filter>src</Filter>
+    </ClInclude>
     <ClInclude Include="src\e4_rk_ha.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\generator.h">
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\guest.h">
@@ -58,9 +67,6 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\rangen.h">
-      <Filter>src</Filter>
-    </ClInclude>
-    <ClInclude Include="src\event.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

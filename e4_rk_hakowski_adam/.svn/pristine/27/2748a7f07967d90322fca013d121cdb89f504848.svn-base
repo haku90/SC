@@ -12,8 +12,7 @@
  *	Implementacja autobusu.
  *
  */
-
-class Bus:public Process
+class Bus
 {
 public:
 	Bus();
@@ -29,9 +28,6 @@ public:
 	double retNumOfBusy(){return numOfbusy;}
 	//! Uaktualnia liczbê zajêtych miejsc.
 	void updateNumOfBusy(){numOfbusy=lstPass.size()+lstGuest.size();}
-
-	void execute();
-	
 
 private:
 
