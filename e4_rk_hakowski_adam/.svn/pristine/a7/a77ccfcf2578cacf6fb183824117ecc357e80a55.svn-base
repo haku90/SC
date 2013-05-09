@@ -80,7 +80,6 @@ void Hotel::transfer(Bus* pBus)
 //-----------------------------------------------
 void Hotel::execute()
 {
-	double lambda=0;
 	bool active=true;
 	while (active)
 	{
@@ -88,11 +87,7 @@ void Hotel::execute()
 		{
 		case 0:
 			/*sprawdzenie czy pasazer zdazy*/
-			if(id==6||id==7)
-				lambda=10;
-			else
-				lambda=5;
-			activate(Exponential(lambda));
+			activate(Exponential(10));
 			phase=1;
 			active=true;
 			break;
@@ -100,11 +95,6 @@ void Hotel::execute()
 			addGuest(new Guest((1.5*Uniform()+2)*60,Clock));
 			phase=0;
 			active=false;
-		cerr<<"hotel 1 ilosc gosci czekajacych w hotelu "<<h1.getNumOfWait()<<endl;
-		cerr<<"hotel 2 ilosc gosci czekajacych w hotelu "<<h2.getNumOfWait()<<endl;
-		cerr<<"hotel 3 ilosc gosci czekajacych w hotelu "<<h3.getNumOfWait()<<endl;
-		cerr<<"hotel 4 ilosc gosci czekajacych w hotelu "<<h4.getNumOfWait()<<endl;
-		
 			break;
 
 		}

@@ -24,8 +24,6 @@ public:
 
 	queue<Passsenger*> quePass;			//!< Kolejka pasa¿erów.
 	queue<Bus*> queBass;				//!< Kolejka autobusów.
-	double timeDepart;					//!< Czas odjazdu poprzedniego autobusu.
-	bool start;							//!< Flaga czy autobus mo¿e odjechaæ.
 
 	void addPass(Passsenger *pPass);	//!< Dodanie pass do kolejki na lotnisku.
 	void addBuss(Bus *pBus);			//!< Dodanie do kolejki autobusu.
@@ -40,8 +38,8 @@ private:
 
 	int numOfBus;						//!< Iloœæ autobusów na lotnisku.
 	int numOfPass;						//!< Iloœæ pasa¿erów na przystanku.
-	
-	
+	bool start;							//!< Flaga czy autobus mo¿e odjechaæ.
+	double timeDepart;					//!< Czas odjazdu poprzedniego autobusu.
 };
 /////////////////////////////////////////////////
 //***********************************************

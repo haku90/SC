@@ -26,28 +26,23 @@ int main(int argc, char *argv[])
 	
 	process* current;
 	Clock=0.0;
-	/*
 	ap.addBuss(&b1);
 	ap.addBuss(&b2);
 	ap.addBuss(&b3);
 	ap.addBuss(&b4);
 	ap.addBuss(&b5);
-	*/
 	ap.activate(0);
-
+	/*
 	b1.activate(0);
 	b2.activate(0);
 	b3.activate(0);
 	b4.activate(0);
-	
-	
 	h1.activate(0);
 	h2.activate(0);
 	h3.activate(0);
 	h4.activate(0);
+	*/
 
-
-	
 	while(Clock<100)
 	{
 		current=ag.first()->proc;
@@ -55,10 +50,20 @@ int main(int argc, char *argv[])
 		ag.remove_first();
 		current->execute();
 		cerr<<"aktualny czas symulacji "<<Clock<<endl;
-
+		cerr<<"Lotnisko pasazerowie czekajacych na lotnisku"<<h1.getNumOfWait()<<endl;
+		cerr<<"hotel 1 ilosc gosci czekajacych w hotelu "<<h1.getNumOfWait()<<endl;
+		cerr<<"hotel 2 ilosc gosci czekajacych w hotelu "<<h2.getNumOfWait()<<endl;
+		cerr<<"hotel 3 ilosc gosci czekajacych w hotelu "<<h3.getNumOfWait()<<endl;
+		cerr<<"hotel 4 ilosc gosci czekajacych w hotelu "<<h4.getNumOfWait()<<endl;
+		cerr<<"Autobus 1 ilosc miejsc zajetych "<<b1.retNumOfBusy()<<endl;
+		cerr<<"Autobus 2 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
+		cerr<<"Autobus 3 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
+		cerr<<"Autobus 4 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
+		cerr<<"Autobus 5 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
+		if(current->terminated) delete current;
 	}
 	
-
+	
 	return 0;
 	
 }

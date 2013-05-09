@@ -64,8 +64,7 @@ void AirPort::setStart(double time)
 //----------------------------------------------
 void AirPort::execute()
 {
-	int id=0;
-	double gen=0;
+	int genPass;
 	bool active=true;
 	while (active)
 	{
@@ -77,27 +76,45 @@ void AirPort::execute()
 			phase=1;
 			break;
 		case 1:
-			
-			for(int i=0;i<(int)5*Uniform()+8;i++)
-			{
-				gen=Uniform();
-				if(gen>0 && gen<0.2)
-					id=6;
-				if(gen>=0.2 && gen<0.4)
-					id=7;
-				if(gen>=0.4&& gen<0.7)
-					id=8;
-				else
-					id=9;
-				ap.addPass(new Passsenger(Clock,id));
-			}
-			cerr<<"Lotnisko pasazerowie czekajacych na lotnisku"<<h1.getNumOfWait()<<endl;
+			genPass=(int)5*Uniform()+8;
 
-			active=false;
-			phase=0;
+			for(int i=0; i<int(genPass*0.2);i++)
+			addPass(new Passsenger(Clock,6));
+
+			for(int i=0; i<int(genPass*0.2);i++)
+			addPass(new Passsenger(Clock,7));
+
+			for(int i=0; i<int(genPass*0.3);i++)
+			addPass(new Passsenger(Clock,8));
+
+			for(int i=0; i<int(genPass*0.3);i++)
+			addPass(new Passsenger(Clock,9));
+
+			active=true;
+			phase=2;
 			
 			break;
-		
+		case 2:
+			setStart(Clock);
+			if(start)
+			{
+				phase=3;
+				active=true;
+			}
+			else
+			{
+				active=false;
+				activate(5-(Clock-timeDepart));
+				phase=2;
+			}
+			break;
+		case 3:
+			timeDepart=Clock;
+			queBass.front()->activate(0);
+			queBass.pop();
+			active=false;
+			phase=0;
+			break;
 		}
 	}
 }
