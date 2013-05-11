@@ -11,7 +11,8 @@ int Hotel::numOfHotel=6;
 Hotel::Hotel()
 {
 	
-	numOfwait=0;
+	numOfwait=numOftaxi=numOflost=0;
+	meanLength=length=lastTime=0;
 	if(id>9)
 	{
 	cerr<<"Nie mozna utworzyæ wiêcej ni¿ 4 hotele"<<endl;
@@ -41,7 +42,9 @@ Hotel::Hotel()
 void Hotel::addGuest(Guest *pGuest)
 {
 	queGuest.push(pGuest);
-	updateNumOfWait();
+	numOfwait++;
+	meanLength=(pGuest->arrival-lastTime)*length++;
+	lastTime=pGuest->arrival;
 
 }
 //-----------------------------------------------
@@ -65,16 +68,46 @@ void Hotel::getOutPass(Bus* pBus)
 //-----------------------------------------------
 void Hotel::transfer(Bus* pBus)
 {
-	
+	//if(pBus->isFree()&& queGuest.size()!=0)
+		//stat[queGuest.size()]+=(Clock-queGuest.top()->arrival);
+
 	while(pBus->isFree() && queGuest.size()!=0)
 	{
-		
+			if((queGuest.top()->getTripTime())<getMaxTripTime())
+			{
+				if((queGuest.top()->getTripTime())>=maxTimeTaxi)
+					numOftaxi++;
+				else 
+					numOflost++;
+
+				TimeWait+=(Clock-queGuest.top()->arrival);
+				meanLength+=(Clock-lastTime)*length--;
+				lastTime=Clock;
+				queGuest.pop();
+			}
+			else	
+			{
 		pBus->addGuest(queGuest.top());
+		TimeWait+=(Clock-queGuest.top()->arrival);
 		queGuest.pop();
 		pBus->updateNumOfBusy();
-		
+			}
 	}
-	updateNumOfWait();
+	
+	if(queGuest.size()!=0)
+	{
+	if((queGuest.top()->getTripTime())<getMaxTripTime())
+			{
+				if((queGuest.top()->getTripTime())>=maxTimeTaxi)
+					numOftaxi++;
+				else 
+					numOflost++;
+				TimeWait+=(Clock-queGuest.top()->arrival);
+				meanLength+=(Clock-lastTime)*length--;
+				lastTime=Clock;
+					queGuest.pop();
+			}
+	}
 	
 }
 //-----------------------------------------------
@@ -87,7 +120,6 @@ void Hotel::execute()
 		switch(phase)
 		{
 		case 0:
-			/*sprawdzenie czy pasazer zdazy*/
 			if(id==6||id==7)
 				lambda=10;
 			else
@@ -97,14 +129,9 @@ void Hotel::execute()
 			active=true;
 			break;
 		case 1:
-			addGuest(new Guest((1.5*Uniform()+2)*60,Clock));
+			addGuest(new Guest((1.5*Uniform()+2)*60.,Clock));
 			phase=0;
 			active=false;
-		cerr<<"hotel 1 ilosc gosci czekajacych w hotelu "<<h1.getNumOfWait()<<endl;
-		cerr<<"hotel 2 ilosc gosci czekajacych w hotelu "<<h2.getNumOfWait()<<endl;
-		cerr<<"hotel 3 ilosc gosci czekajacych w hotelu "<<h3.getNumOfWait()<<endl;
-		cerr<<"hotel 4 ilosc gosci czekajacych w hotelu "<<h4.getNumOfWait()<<endl;
-		
 			break;
 
 		}

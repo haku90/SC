@@ -5,6 +5,7 @@
  * \date   2013-02-28
  ***********************************************/
 #include "e4_rk_ha.h"
+#include "simulation.h"
 /////////////////////////////////////////////////
 
 	event_list ag;
@@ -18,46 +19,14 @@
 	Hotel h2;
 	Hotel h3;
 	Hotel h4;
-	double Clock=0;//!< Aktualny czas w systemie.
+	double Clock=0.;//!< Aktualny czas w systemie.
 //-----------------------------------------------
 int main(int argc, char *argv[])
 {
 	cout<<"...........Symulacja Cyfrowa............."<<endl;
 	
-	process* current;
-	Clock=0.0;
-	/*
-	ap.addBuss(&b1);
-	ap.addBuss(&b2);
-	ap.addBuss(&b3);
-	ap.addBuss(&b4);
-	ap.addBuss(&b5);
-	*/
-	ap.activate(0);
+	simulation();
 
-	b1.activate(0);
-	b2.activate(0);
-	b3.activate(0);
-	b4.activate(0);
-	
-	
-	h1.activate(0);
-	h2.activate(0);
-	h3.activate(0);
-	h4.activate(0);
-
-
-	
-	while(Clock<100)
-	{
-		current=ag.first()->proc;
-		Clock=ag.first()->event_time;
-		ag.remove_first();
-		current->execute();
-		cerr<<"aktualny czas symulacji "<<Clock<<endl;
-
-	}
-	
 
 	return 0;
 	

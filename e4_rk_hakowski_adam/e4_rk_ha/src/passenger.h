@@ -19,7 +19,7 @@ public:
 	Passsenger(double time, int id);
 
 	int getId(){ return destinationId;} //!< Zwraca ID hotelu do którego ma siê udaæ pasa¿er.
-	
+	double getTimeArrival(){return arrival;}	//!< Zwraca czas przybycia.
 
 private:
 

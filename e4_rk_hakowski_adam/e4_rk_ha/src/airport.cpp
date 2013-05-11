@@ -15,13 +15,20 @@ AirPort::AirPort()
 	start=false;
 	numOfBus=0;
 	numOfPass=0;
+	timeStop=0;
+	waitTime=0;
+	numOfPassAll=0;
+	avgBus=avgPassenger=0;
+	meanLength=length=lastTime;
 }
 //-----------------------------------------------
 void AirPort::addPass(Passsenger *pPass)
 {
 	quePass.push(pPass);
 	numOfPass=quePass.size();
-	
+	numOfPassAll++;
+	meanLength+=(pPass->getTimeArrival()-lastTime)*length++;
+	lastTime=pPass->getTimeArrival();
 }
 //----------------------------------------------
 void AirPort::addBuss(Bus *pBus)
@@ -34,27 +41,34 @@ void AirPort::addBuss(Bus *pBus)
 	}
 	pBus->clrBusy();
 	queBass.push(pBus);
-	numOfBus=queBass.size();
+	updateNumOfBus();
+	timeStop=Clock;
+
 }
 //----------------------------------------------
 
 void AirPort::transfer(Bus* bus)
 {
+	//if(bus->isFree()&& numOfPass!=0)
+		//stat[numOfPass]+=(Clock-quePass.front()->getTimeArrival());
+
 	while(numOfPass!=0 && bus->isFree())
 	{
+		
 		bus->addPass(quePass.front());
+		waitTime+=(Clock-(quePass.front()->getTimeArrival()));
+		meanLength+=(Clock-lastTime)*length--;
+		lastTime=Clock;
 		quePass.pop();
 		numOfPass=quePass.size();
+	
 	}
+		avgBus+=(Clock-ap.timeStop)*numOfBus;
+	
 }
 //----------------------------------------------
 void AirPort::setStart(double time)
 {
-	if(numOfBus==1)
-	{
-		start=true;
-		return;
-	}
 	if((time-5)>=timeDepart)
 		start=true;
 	else
@@ -91,8 +105,6 @@ void AirPort::execute()
 					id=9;
 				ap.addPass(new Passsenger(Clock,id));
 			}
-			cerr<<"Lotnisko pasazerowie czekajacych na lotnisku"<<h1.getNumOfWait()<<endl;
-
 			active=false;
 			phase=0;
 			

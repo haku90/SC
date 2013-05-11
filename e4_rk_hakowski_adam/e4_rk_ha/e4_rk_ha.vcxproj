@@ -96,6 +96,7 @@
     <ClInclude Include="src\passenger.h" />
     <ClInclude Include="src\process.h" />
     <ClInclude Include="src\rangen.h" />
+    <ClInclude Include="src\simulation.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="doc\e4_rk_ha_z1.pdf" />

@@ -69,6 +69,9 @@
     <ClInclude Include="src\process.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\simulation.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="doxygen.cfg" />

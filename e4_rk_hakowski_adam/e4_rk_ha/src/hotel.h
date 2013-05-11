@@ -32,12 +32,13 @@ public:
 	};
 
 	priority_queue<Guest*,vector<Guest*>,compare> queGuest;		//!< Priorytetowa kolejka goœci.
+	//! Lista typu klucz wartoœæ, przechowuj¹ca informacje o iloœci i czasie gosci przebywajacych na przystanku.
+	//map<int,double> stat;											
 
 	int getID(){return id;}										//!< Zwraca numer hotelu Hotelu.
 	int getNumOfWait(){return numOfwait;}						//!< Zwraca ilosc osob na przystanku.
 
-	//! Uaktualnia iloœci osób na przystanku.
-	void updateNumOfWait(){numOfwait=queGuest.size();}	
+	
 
 	//! Dodanie goœci do kolejki.
 	void addGuest(Guest* pGuest);
@@ -47,8 +48,17 @@ public:
 	void transfer(Bus* pBus);
 
 	void execute();
+	//! Zwraca maksymalny czas podró¿y z danego hotelu.
+	double getMaxTripTime(){return maxTimeTrip;}
+	//! Zwraca sume czasów oczekiwania.
+	double getTimeWait(){return TimeWait;}
 
-	
+	int numOftaxi;				//!< Liczba zamówionych taksówek.
+	int numOflost;				//!< Liczba goœci którzy nie zd¹¿a ani taksówka ani autobusem.
+	double maxTimeTaxi;			//!< Maksymalny czas podró¿y taksówka na lotnisko.
+	double meanLength;
+	double lastTime;
+	double length;
 private:
 
 	int id;						//!< Identyfikator(numer) hotelu.
@@ -56,6 +66,7 @@ private:
 	double timePrev;			//!< Czas od poprzedniego przyjazdu autobusu.
 	double maxTimeTrip;			//!< Maksymalny czas podró¿y z hotelu na lotnisko.
 	static int numOfHotel;		//!< Iloœæ hoteli.
+	double TimeWait;			//!< Suma czasów czekania goœci.
 };
 /////////////////////////////////////////////////
 //***********************************************

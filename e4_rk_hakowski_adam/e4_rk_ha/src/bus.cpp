@@ -77,17 +77,14 @@ void Bus::execute()
 			}
 			break;
 		case 2:
-			ap.queBass.pop();
+			
 			ap.timeDepart=Clock;
 			ap.transfer(this);
+			ap.queBass.pop();
+			ap.updateNumOfBus();
 			activate(Normal());
 			phase=3;
 			active=false;
-			cerr<<"Autobus 1 ilosc miejsc zajetych "<<b1.retNumOfBusy()<<endl;
-			cerr<<"Autobus 2 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
-			cerr<<"Autobus 3 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
-			cerr<<"Autobus 4 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
-			cerr<<"Autobus 5 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
 			break;
 			
 		case 3:
@@ -96,23 +93,14 @@ void Bus::execute()
 			phase=4;
 			active=false;
 			activate(Normal());
-			cerr<<"Autobus 1 ilosc miejsc zajetych "<<b1.retNumOfBusy()<<endl;
-			cerr<<"Autobus 2 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
-			cerr<<"Autobus 3 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
-			cerr<<"Autobus 4 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
-			cerr<<"Autobus 5 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
 			break;
+
 		case 4:
 			h2.getOutPass(this);
 			h2.transfer(this);
 			phase=5;
 			active=false;
 			activate(Normal());
-			cerr<<"Autobus 1 ilosc miejsc zajetych "<<b1.retNumOfBusy()<<endl;
-			cerr<<"Autobus 2 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
-			cerr<<"Autobus 3 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
-			cerr<<"Autobus 4 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
-			cerr<<"Autobus 5 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
 			break;
 			
 		case 5:
@@ -121,20 +109,14 @@ void Bus::execute()
 			phase=6;
 			active=false;
 			activate(Normal());
-			cerr<<"Autobus 1 ilosc miejsc zajetych "<<b1.retNumOfBusy()<<endl;
-			cerr<<"Autobus 2 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
-			cerr<<"Autobus 3 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
-			cerr<<"Autobus 4 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
-			cerr<<"Autobus 5 ilosc miejsc zajetych "<<b2.retNumOfBusy()<<endl;
 			break;
+
 		case 6:
 			h4.getOutPass(this);
 			h4.transfer(this);
 			phase=0;
 			active=false;
 			activate(Normal());
-
-
 			break;
 		}
 	}
