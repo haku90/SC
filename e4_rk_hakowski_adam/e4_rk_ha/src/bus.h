@@ -37,7 +37,7 @@ private:
 
 	int numOfbusy;							//!< Iloœæ zajêtych miejsc.
 	int id;									//!< Numer autobusu.
-	double tripTime;						//!< Czas podró¿y na przystanek.
+
 	static const int numOfseats=15;			//!< Iloœæ siedzeñ.
 	static int numOfbus;					//!< Iloœæ autobusów.
 };

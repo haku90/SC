@@ -24,7 +24,6 @@ public:
 private:
 
 	double arrival;						//!< Czas wstawienia do kolejki.
-	double start_trip;					//!< Czas wejœcia do autobusu.
 	int destinationId;					//!< Numer hotelu do ktorego sie udaje.
 
 };

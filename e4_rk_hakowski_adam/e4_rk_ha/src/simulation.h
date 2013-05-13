@@ -20,8 +20,8 @@ void simulation()
 	b2.activate(0);
 	b3.activate(0);
 	b4.activate(0);
-	
-	
+	b5.activate(0);
+
 	h1.activate(0);
 	h2.activate(0);
 	h3.activate(0);
@@ -39,40 +39,15 @@ void simulation()
 //----------------------------------------------
 // Wyswietl statystyki:
 //---------------------------------------------
-	/*
- for (map<int,double>::iterator it=h1.stat.begin(); it!=h1.stat.end(); ++it)
-	 avgPepoleOnStop+=(it->first*it->second);
-	cerr<<"........................................................................"<<endl;
-	cerr<<"Srednia ilosc gosci czekajacych na przystanku w hotelu1 : "<<avgPepoleOnStop/timeSimulation<<endl;
-
-	avgPepoleOnStop=0;
-	 for (map<int,double>::iterator it=h2.stat.begin(); it!=h2.stat.end(); ++it)
-	 avgPepoleOnStop+=(it->first*it->second);
-	cerr<<"Srednia ilosc gosci czekajacych na przystanku w hotelu2 : "<<avgPepoleOnStop/timeSimulation<<endl;
-
-	avgPepoleOnStop=0;
-	 for (map<int,double>::iterator it=h3.stat.begin(); it!=h3.stat.end(); ++it)
-	 avgPepoleOnStop+=(it->first*it->second);
-	cerr<<"Srednia ilosc gosci czekajacych na przystanku w hotelu3 : "<<avgPepoleOnStop/timeSimulation<<endl;
-
-	avgPepoleOnStop=0;
-	 for (map<int,double>::iterator it=h4.stat.begin(); it!=h4.stat.end(); ++it)
-	 avgPepoleOnStop+=(it->first*it->second);
-	cerr<<"Srednia ilosc gosci czekajacych na przystanku w hotelu4 : "<<avgPepoleOnStop/timeSimulation<<endl;
-
-	avgPepoleOnStop=0;
-	 for (map<int,double>::iterator it=ap.stat.begin(); it!=ap.stat.end(); ++it)
-	 avgPepoleOnStop+=(it->first*it->second);
-	cerr<<"Srednia ilosc pasazerow czekajacych na lotnisku : "<<avgPepoleOnStop/timeSimulation<<endl;
-	*/
+	
 	cout<<"........................................................................"<<endl;
-	cout<<"Srednia liczba autobusow na lotnisku "<<ap.avgBus/timeSimulation<<endl;
+	cout<<"Srednia liczba autobusow na lotnisku "<<ap.meanLengthBus/Clock<<endl;
 	cout<<"........................................................................"<<endl;
-	cout<<"Srednia ilosc pasazerow  na lotnisku : "<<ap.meanLength/timeSimulation<<endl;
-	cout<<"Srednia ilosc gosci czekajacych na przystanku w hotelu1 : "<<h1.meanLength/timeSimulation<<endl;
-	cout<<"Srednia ilosc gosci czekajacych na przystanku w hotelu2 : "<<h2.meanLength/timeSimulation<<endl;
-	cout<<"Srednia ilosc gosci czekajacych na przystanku w hotelu3 : "<<h3.meanLength/timeSimulation<<endl;
-	cout<<"Srednia ilosc gosci czekajacych na przystanku w hotelu4 : "<<h4.meanLength/timeSimulation<<endl;
+	cout<<"Srednia liczba pasazerow  na lotnisku : "<<ap.meanLength/Clock<<endl;
+	cout<<"Srednia liczba gosci czekajacych na przystanku w hotelu1 : "<<h1.meanLength/Clock<<endl;
+	cout<<"Srednia liczba gosci czekajacych na przystanku w hotelu2 : "<<h2.meanLength/Clock<<endl;
+	cout<<"Srednia liczba gosci czekajacych na przystanku w hotelu3 : "<<h3.meanLength/Clock<<endl;
+	cout<<"Srednia liczba gosci czekajacych na przystanku w hotelu4 : "<<h4.meanLength/Clock<<endl;
 	cout<<"........................................................................"<<endl;
 	cout<<"Srednia czas oczekiwania na lotnisku : "<<(ap.getWaitTime()/ap.getNumOfPassAll())<<endl;
 	cout<<"Srednia czas oczekiwania na przystanku w hotelu 1 : "<<(h1.getTimeWait()/h1.getNumOfWait())<<endl;
@@ -80,14 +55,14 @@ void simulation()
 	cout<<"Srednia czas oczekiwania na przystanku w hotelu 3 : "<<(h3.getTimeWait()/h3.getNumOfWait())<<endl;
 	cout<<"Srednia czas oczekiwania na przystanku w hotelu 4 : "<<(h4.getTimeWait()/h4.getNumOfWait())<<endl;
 	cout<<"........................................................................"<<endl;
-	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 1: "<<h1.numOftaxi/(timeSimulation/60)<<endl;
-	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 2: "<<h1.numOftaxi/(timeSimulation/60)<<endl;
-	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 3: "<<h3.numOftaxi/(timeSimulation/60)<<endl;
-	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 4: "<<h4.numOftaxi/(timeSimulation/60)<<endl;
+	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 1: "<<h1.numOftaxi/(Clock/60)<<endl;
+	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 2: "<<h1.numOftaxi/(Clock/60)<<endl;
+	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 3: "<<h3.numOftaxi/(Clock/60)<<endl;
+	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 4: "<<h4.numOftaxi/(Clock/60)<<endl;
 	cout<<"........................................................................"<<endl;
-	cout<<"Liczba gosci straconych  "<<h1.numOflost+h2.numOflost+h3.numOflost+h4.numOflost<<endl;
-
-	
+	cout<<"Liczba gosci straconych:  "<<h1.numOflost+h2.numOflost+h3.numOflost+h4.numOflost<<endl;
+	cout<<"liczba gosci w systemie: "<<h1.getNumOfWait()+h2.getNumOfWait()+h3.getNumOfWait()+h4.getNumOfWait()<<endl;
+	cout<<"liczba pasazerow w systemie: "<<ap.getNumOfPassAll()<<endl;
 	
 
 	return ;

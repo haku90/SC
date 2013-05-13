@@ -15,11 +15,10 @@ AirPort::AirPort()
 	start=false;
 	numOfBus=0;
 	numOfPass=0;
-	timeStop=0;
 	waitTime=0;
 	numOfPassAll=0;
-	avgBus=avgPassenger=0;
-	meanLength=length=lastTime;
+	meanLengthBus=lengthBus=lastTimeBus=0;
+	meanLength=length=lastTime=0;
 }
 //-----------------------------------------------
 void AirPort::addPass(Passsenger *pPass)
@@ -42,44 +41,46 @@ void AirPort::addBuss(Bus *pBus)
 	pBus->clrBusy();
 	queBass.push(pBus);
 	updateNumOfBus();
-	timeStop=Clock;
 
+	meanLengthBus+=(Clock-lastTimeBus)*lengthBus++;
+	lastTimeBus=Clock;
 }
 //----------------------------------------------
 
 void AirPort::transfer(Bus* bus)
 {
-	//if(bus->isFree()&& numOfPass!=0)
-		//stat[numOfPass]+=(Clock-quePass.front()->getTimeArrival());
+	
 
 	while(numOfPass!=0 && bus->isFree())
 	{
 		
 		bus->addPass(quePass.front());
-		waitTime+=(Clock-(quePass.front()->getTimeArrival()));
+		waitTime+=(Clock-quePass.front()->getTimeArrival());
 		meanLength+=(Clock-lastTime)*length--;
 		lastTime=Clock;
 		quePass.pop();
 		numOfPass=quePass.size();
-	
+		
 	}
-		avgBus+=(Clock-ap.timeStop)*numOfBus;
+	meanLengthBus+=(Clock-lastTimeBus)*lengthBus--;
+	lastTimeBus=Clock;
+		
 	
 }
 //----------------------------------------------
 void AirPort::setStart(double time)
 {
+	
 	if((time-5)>=timeDepart)
 		start=true;
 	else
 		start=false;
-
 }
 //----------------------------------------------
 void AirPort::execute()
 {
 	int id=0;
-	double gen=0;
+	long double gen=0;
 	bool active=true;
 	while (active)
 	{
@@ -94,14 +95,14 @@ void AirPort::execute()
 			
 			for(int i=0;i<(int)5*Uniform()+8;i++)
 			{
-				gen=Uniform();
-				if(gen>0 && gen<0.2)
+				gen=Uniform()+1;
+				if(gen>1 && gen<1.2)
 					id=6;
-				if(gen>=0.2 && gen<0.4)
+				if(gen>=1.2 && gen<1.4)
 					id=7;
-				if(gen>=0.4&& gen<0.7)
+				if(gen>=1.4&& gen<1.70)
 					id=8;
-				else
+				if(gen>=1.7&&gen<2.0)
 					id=9;
 				ap.addPass(new Passsenger(Clock,id));
 			}

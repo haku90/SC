@@ -28,7 +28,7 @@ public:
 	//map<int,double> stat;			
 	double timeDepart;					//!< Czas odjazdu poprzedniego autobusu.
 	bool start;							//!< Flaga czy autobus mo¿e odjechaæ.
-	double timeStop;					//!< Czas postoju danego autobusu.
+	
 
 	
 
@@ -49,13 +49,14 @@ public:
 	//! Zwraca sume wszystkich pasa¿erów.
 	int getNumOfPassAll(){return numOfPassAll;}
 	void execute();
-	double avgBus;							//!< Œrednia iloœæ autbusów na lotnisku.
-	double avgPassenger;					//!< Œrednia iloœæ pasa¿erów na lotnisku.
 
 	double meanLength;
 	double lastTime;
 	double length;
 
+	double lastTimeBus;
+	double meanLengthBus;
+	double lengthBus;
 private:
 
 	int numOfBus;						//!< Iloœæ autobusów na lotnisku.

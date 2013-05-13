@@ -13,7 +13,6 @@ Bus::Bus()
 	id=++numOfbus;
 	if(id>5)
 	{
-		tripTime=NULL;
 		cerr<<"nie mozna utworzyc wiecej niz 5 autobusow"<<endl;
 	}
 	numOfbusy=0;
@@ -44,11 +43,7 @@ void Bus::clrBusy()
 {
 	numOfbusy=0;
 }
-//-----------------------------------------------
-void Bus::updateTime(double time)
-{
-	tripTime=time;
-}
+
 //-----------------------------------------------
 void Bus::execute()
 {
@@ -68,12 +63,14 @@ void Bus::execute()
 			{
 				active=true;
 				phase=2;
+			
 			}
 			else
 			{
 				active=false;
 				phase=1;
 				activate(5-(Clock-ap.timeDepart));
+				
 			}
 			break;
 		case 2:

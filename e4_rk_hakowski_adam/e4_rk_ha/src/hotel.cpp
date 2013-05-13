@@ -12,7 +12,7 @@ Hotel::Hotel()
 {
 	
 	numOfwait=numOftaxi=numOflost=0;
-	meanLength=length=lastTime=0;
+	meanLength=length=lastTime=TimeWait=0;
 	if(id>9)
 	{
 	cerr<<"Nie mozna utworzyæ wiêcej ni¿ 4 hotele"<<endl;
@@ -43,7 +43,7 @@ void Hotel::addGuest(Guest *pGuest)
 {
 	queGuest.push(pGuest);
 	numOfwait++;
-	meanLength=(pGuest->arrival-lastTime)*length++;
+	meanLength+=(pGuest->arrival-lastTime)*length++;
 	lastTime=pGuest->arrival;
 
 }
@@ -68,18 +68,20 @@ void Hotel::getOutPass(Bus* pBus)
 //-----------------------------------------------
 void Hotel::transfer(Bus* pBus)
 {
-	//if(pBus->isFree()&& queGuest.size()!=0)
-		//stat[queGuest.size()]+=(Clock-queGuest.top()->arrival);
+	
 
 	while(pBus->isFree() && queGuest.size()!=0)
 	{
 			if((queGuest.top()->getTripTime())<getMaxTripTime())
 			{
 				if((queGuest.top()->getTripTime())>=maxTimeTaxi)
+				{
 					numOftaxi++;
+				}
 				else 
+				{
 					numOflost++;
-
+				}
 				TimeWait+=(Clock-queGuest.top()->arrival);
 				meanLength+=(Clock-lastTime)*length--;
 				lastTime=Clock;
@@ -87,10 +89,12 @@ void Hotel::transfer(Bus* pBus)
 			}
 			else	
 			{
-		pBus->addGuest(queGuest.top());
-		TimeWait+=(Clock-queGuest.top()->arrival);
-		queGuest.pop();
-		pBus->updateNumOfBusy();
+				pBus->addGuest(queGuest.top());
+				TimeWait+=(Clock-queGuest.top()->arrival);
+				meanLength+=(Clock-lastTime)*length--;
+				lastTime=Clock;
+				queGuest.pop();
+				pBus->updateNumOfBusy();
 			}
 	}
 	
@@ -99,9 +103,13 @@ void Hotel::transfer(Bus* pBus)
 	if((queGuest.top()->getTripTime())<getMaxTripTime())
 			{
 				if((queGuest.top()->getTripTime())>=maxTimeTaxi)
+				{
 					numOftaxi++;
+				}
 				else 
+				{
 					numOflost++;
+				}
 				TimeWait+=(Clock-queGuest.top()->arrival);
 				meanLength+=(Clock-lastTime)*length--;
 				lastTime=Clock;
@@ -129,7 +137,7 @@ void Hotel::execute()
 			active=true;
 			break;
 		case 1:
-			addGuest(new Guest((1.5*Uniform()+2)*60.,Clock));
+			addGuest(new Guest((1.5*Uniform()+2)*60,Clock));
 			phase=0;
 			active=false;
 			break;
