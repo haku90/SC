@@ -137,7 +137,7 @@ void Hotel::execute()
 			active=true;
 			break;
 		case 1:
-			addGuest(new Guest(0,Clock));
+			addGuest(new Guest((1.5*Uniform()+2)*60,Clock));
 			phase=0;
 			active=false;
 			break;

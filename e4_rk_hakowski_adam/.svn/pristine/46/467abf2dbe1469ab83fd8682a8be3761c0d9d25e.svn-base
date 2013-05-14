@@ -11,9 +11,6 @@
     <Filter Include="src">
       <UniqueIdentifier>{25195dfb-a8b3-4861-89ce-d5e9283a325c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="output">
-      <UniqueIdentifier>{3f419baa-4605-40a6-88a8-97e36ae1879a}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\airport.cpp">

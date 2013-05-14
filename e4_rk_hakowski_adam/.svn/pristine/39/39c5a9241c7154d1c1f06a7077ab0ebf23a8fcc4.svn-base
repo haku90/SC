@@ -26,11 +26,6 @@ void simulation()
 	h2.activate(0);
 	h3.activate(0);
 	h4.activate(0);
-
-	ofstream stats;
-	stats.open("./output/stats.csv", ios_base::out | ios_base::trunc);
-	stats << "time" << ';' << "kolejka pasazerow lotnisko" << ';' << "kolejka hotel1" <<';'<<"kolejka hotel2" <<';'<<"kolejka hotel3" <<';'<<"kolejka hotel4" <<';'<<"kolejka autobusow na lotnisku" <<endl;
-	
 	//G³owna pêtla symulacyjna.
 	while(Clock<timeSimulation)
 	{
@@ -38,8 +33,7 @@ void simulation()
 		Clock=ag.first()->event_time;
 		ag.remove_first();
 		current->execute();
-		
-		stats << Clock << ';' << ap.quePass.size() << ';' << h1.queGuest.size()<<';'<<h2.queGuest.size()<<';'<<h3.queGuest.size()<<';'<<h4.queGuest.size()<<';'<<ap.queBass.size()<<endl;
+
 	}
 //----------------------------------------------
 // Wyswietl statystyki:
