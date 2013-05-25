@@ -12,10 +12,16 @@ extern  const int r;
 extern  const int range;
 //-----------------------------------------------
 double Uniform(void);	//!< Uniform_distribution from 0 to 1.
+double Uniform(int& x); //!< Uniform_distribution from 0 to 1 witch provided seed variable.
 //----------------------------------------------
 inline double Exponential(const double & lambda)
 {
 	return -log(Uniform()) * lambda;
+}
+//-----------------------------------------------
+inline double Exponential(double& lambda, int& x)
+{
+	return -log(Uniform(x)) * lambda;
 }
 //-----------------------------------------------
 inline double Normal()

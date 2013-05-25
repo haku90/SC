@@ -118,5 +118,23 @@ void Bus::execute()
 		}
 	}
 }
+//-----------------------------------------------
+void Bus::clr()
+{
+	while(lstPass.size()!=0)
+	{
+		Passsenger* temp=lstPass.front();
+		lstPass.pop_front();
+		delete temp;
+	}
+	while(lstGuest.size()!=0)
+	{
+		Guest* temp=lstGuest.front();
+		lstGuest.pop_front();
+		delete temp;
+	}
+	updateNumOfBusy();
+	phase=0;
+}
 /////////////////////////////////////////////////
 //***********************************************

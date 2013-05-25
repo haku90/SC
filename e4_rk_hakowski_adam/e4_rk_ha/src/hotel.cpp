@@ -137,7 +137,7 @@ void Hotel::execute()
 			active=true;
 			break;
 		case 1:
-			addGuest(new Guest(0,Clock));
+			addGuest(new Guest((1.5*Uniform()+2)*60,Clock));
 			phase=0;
 			active=false;
 			break;
@@ -145,6 +145,26 @@ void Hotel::execute()
 		}
 	}
 	
+}
+//-----------------------------------------------
+void Hotel::clrStats()
+{
+	numOfwait=numOftaxi=numOflost=0;
+	meanLength=TimeWait=0;
+
+}
+//----------------------------------------------
+void Hotel::clr()
+{
+	while(queGuest.size()!=0)
+	{
+		Guest* temp=queGuest.top();
+		queGuest.pop();
+		delete temp;
+	}
+	numOfwait=numOftaxi=numOflost=0;
+	meanLength=length=lastTime=TimeWait=0;
+	phase=0;
 }
 /////////////////////////////////////////////////
 //***********************************************

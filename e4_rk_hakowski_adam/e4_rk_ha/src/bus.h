@@ -31,8 +31,8 @@ public:
 	void updateNumOfBusy(){numOfbusy=lstPass.size()+lstGuest.size();}
 
 	void execute();							//!< Metoda wykonania dla interakcji procesów.
-	
-
+	//! Czysci autobus.
+	void clr();
 private:
 
 	int numOfbusy;							//!< Iloœæ zajêtych miejsc.

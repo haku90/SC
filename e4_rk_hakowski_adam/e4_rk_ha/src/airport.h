@@ -50,6 +50,10 @@ public:
 	int getNumOfPassAll(){return numOfPassAll;}
 	//! Metoda wykonania dla interakcji procesów.
 	void execute();
+	//! Metoda do wyzerowania zebranych statystyk.
+	void clrStats();
+	//! Metoda zerujaca.
+	void clr();
 
 	double meanLength;					//!< Œrednia d³ugoœæ kolejki.
 	double lastTime;					//!< Czas ostatniej zmiany w kolejce.

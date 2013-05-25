@@ -24,7 +24,7 @@ using namespace std;
 //-----------------------------------------------
 extern double Clock;
 #include "event_scheduling.h"
-extern event_list ag;
+extern event_list* ag;
 #include "process.h"
 #include "guest.h"
 #include "passenger.h"

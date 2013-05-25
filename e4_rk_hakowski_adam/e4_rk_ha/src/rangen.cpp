@@ -23,5 +23,16 @@ double Uniform(void)
 
 	return (long double)x / long double(range);
 }
+//-----------------------------------------------
+double Uniform(int& x)
+{	
+	register int h = int(x / q);
+
+	x = 16807 * (x - q * h) - r * h;
+	
+	if (x < 0) x += range;
+
+	return (long double)x / long double(range);
+}
 /////////////////////////////////////////////////
 //***********************************************

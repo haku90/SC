@@ -15,7 +15,7 @@ void process::activate(double time)
 {
 	my_event->event_time = Clock + time;
 
-	ag.schedule(my_event);
+	ag->schedule(my_event);
 }
 /////////////////////////////////////////////////
 //***********************************************

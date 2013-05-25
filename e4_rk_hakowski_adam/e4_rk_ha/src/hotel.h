@@ -52,6 +52,10 @@ public:
 	double getMaxTripTime(){return maxTimeTrip;}
 	//! Zwraca sume czasów oczekiwania.
 	double getTimeWait(){return TimeWait;}
+	//! Metoda do wyzerowania zebranych statystyk.
+	void clrStats();
+	//! Metoda zeruj¹ca.
+	void clr();
 
 	int numOftaxi;				//!< Liczba zamówionych taksówek.
 	int numOflost;				//!< Liczba goœci którzy nie zd¹¿a ani taksówka ani autobusem.

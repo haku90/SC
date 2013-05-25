@@ -8,7 +8,7 @@
 #include "simulation.h"
 /////////////////////////////////////////////////
 
-	event_list ag;		//!< Lista zdarzeñ.
+event_list* ag=new event_list();		//!< Lista zdarzeñ.
 	AirPort ap;			//!< Lotnisko.
 	Bus b1;				//!< Autobus 1.
 	Bus b2;				//!< Autobus 2.

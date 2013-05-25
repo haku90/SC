@@ -96,7 +96,7 @@ void AirPort::execute()
 			for(int i=0;i<(int)5*Uniform()+8;i++)
 			{
 				gen=Uniform()+1;
-				if(gen>1 && gen<1.2)
+				if(gen>=1 && gen<1.2)
 					id=6;
 				if(gen>=1.2 && gen<1.4)
 					id=7;
@@ -113,6 +113,40 @@ void AirPort::execute()
 		
 		}
 	}
+}
+//----------------------------------------------
+void AirPort::clrStats()
+{
+
+	waitTime=0;
+	numOfPassAll=0;
+	meanLengthBus=0;
+	meanLength=0;
+}
+//----------------------------------------------
+void AirPort::clr()
+{
+	while(quePass.size()!=0)
+	{
+		Passsenger *temp=quePass.front();
+		delete temp;
+		quePass.pop();
+	}
+	while(queBass.size()!=0)
+	{
+		Bus *temp=queBass.front();
+		delete temp;
+		queBass.pop();
+	}
+	timeDepart=0;
+	start=false;
+	numOfBus=0;
+	numOfPass=0;
+	waitTime=0;
+	numOfPassAll=0;
+	meanLengthBus=lengthBus=lastTimeBus=0;
+	meanLength=length=lastTime=0;
+	phase=0;
 }
 /////////////////////////////////////////////////
 //***********************************************
