@@ -80,6 +80,7 @@ void AirPort::setStart(double time)
 void AirPort::execute()
 {
 	int id=0;
+	double lambda=5.;
 	long double gen=0;
 	bool active=true;
 	while (active)
@@ -87,13 +88,13 @@ void AirPort::execute()
 		switch(phase)
 		{
 		case 0:
-			activate(Exponential(5));
+			activate(Exponential(lambda,seed));
 			active=true;
 			phase=1;
 			break;
 		case 1:
 			
-			for(int i=0;i<(int)5*Uniform()+8;i++)
+			for(int i=0;i<(int)5*Uniform(seed)+8;i++)
 			{
 				gen=Uniform()+1;
 				if(gen>=1 && gen<1.2)

@@ -32,6 +32,7 @@ extern event_list* ag;
 #include "airport.h"
 #include "hotel.h"
 #include "rangen.h"
+
 extern	AirPort ap;
 extern	Bus b1;
 extern Bus b2;
@@ -42,7 +43,7 @@ extern Hotel h1;
 extern Hotel h2;
 extern Hotel h3;
 extern Hotel h4;
-
+extern int seed;
 //-----------------------------------------------
 
 

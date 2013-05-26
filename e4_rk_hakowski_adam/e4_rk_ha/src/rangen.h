@@ -34,6 +34,17 @@ inline double Normal()
 	
 	return X;									// X / sqrt(double(n) / 12.0);
 }
+//-----------------------------------------------
+inline double Normal(int &x)
+{
+	const int n=30;								// mi = n/2, sigma = sqrt(n / 12)
+
+	double X=0;
+	
+	for(int i = 0; i < n; i++) X += Uniform(x);	// X -= double(n) / 2.0;
+	
+	return X;									// X / sqrt(double(n) / 12.0);
+}
 /////////////////////////////////////////////////
 //***********************************************
 #endif /*RANGEN_H*/

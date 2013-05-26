@@ -132,12 +132,12 @@ void Hotel::execute()
 				lambda=10;
 			else
 				lambda=5;
-			activate(Exponential(lambda));
+			activate(Exponential(lambda,seed));
 			phase=1;
 			active=true;
 			break;
 		case 1:
-			addGuest(new Guest((1.5*Uniform()+2)*60,Clock));
+			addGuest(new Guest((1.5*Uniform(seed)+2)*60,Clock));
 			phase=0;
 			active=false;
 			break;

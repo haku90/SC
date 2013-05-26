@@ -5,6 +5,7 @@
  * \date   2013-02-28
  ***********************************************/
 #include "e4_rk_ha.h"
+#include "students_t_distribution.h"
 #include "simulation.h"
 /////////////////////////////////////////////////
 
@@ -20,6 +21,7 @@ event_list* ag=new event_list();		//!< Lista zdarzeñ.
 	Hotel h3;			//!< Hotel 3.
 	Hotel h4;			//!< Hotel 4.
 	double Clock=0.;	//!< Aktualny czas w systemie.
+	int seed =3566;
 //-----------------------------------------------
 int main(int argc, char *argv[])
 {

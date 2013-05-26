@@ -75,6 +75,9 @@
     <ClInclude Include="src\simulation.h">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="src\students_t_distribution.h">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="doxygen.cfg" />
