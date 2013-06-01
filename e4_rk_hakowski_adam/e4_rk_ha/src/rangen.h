@@ -1,5 +1,5 @@
 /********************************************//**
- * \file   rng.cpp
+ * \file   rng.h
  * \brief  Definicja funkcji generuj¹cej zmienne losowe o rozkladzie wykladniczym i normalnym.
  * \author Adam Hakowski (adam.hakowski@gmail.com)
  * \date   2013-04-28
@@ -35,16 +35,18 @@ inline double Normal()
 	return X;									// X / sqrt(double(n) / 12.0);
 }
 //-----------------------------------------------
-inline double Normal(int &x)
+/*
+inline double Normal()
 {
 	const int n=30;								// mi = n/2, sigma = sqrt(n / 12)
 
 	double X=0;
 	
-	for(int i = 0; i < n; i++) X += Uniform(x);	// X -= double(n) / 2.0;
+	for(int i = 0; i < n; i++) X += Uniform();	// X -= double(n) / 2.0;
 	
 	return X;									// X / sqrt(double(n) / 12.0);
 }
+*/
 /////////////////////////////////////////////////
 //***********************************************
 #endif /*RANGEN_H*/

@@ -59,7 +59,7 @@ public:
 
 	int numOftaxi;				//!< Liczba zamówionych taksówek.
 	int numOflost;				//!< Liczba goœci którzy nie zd¹¿a ani taksówka ani autobusem.
-	double maxTimeTaxi;			//!< Maksymalny czas podró¿y taksówka na lotnisko.
+ double maxTimeTaxi;			//!< Maksymalny czas podró¿y taksówka na lotnisko.
 	double meanLength;			//!< Œrednia d³ugoœæ kolejki.
 	double lastTime;			//!< Ostatni czas zmiany w kolejce.
 	double length;				//!< Aktualna d³ugoœæ kolejki.

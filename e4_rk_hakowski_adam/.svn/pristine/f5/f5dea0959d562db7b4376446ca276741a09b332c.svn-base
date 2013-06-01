@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="doc">
+      <UniqueIdentifier>{148141a5-42f6-4716-b29e-b5fc3e5593ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{25195dfb-a8b3-4861-89ce-d5e9283a325c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="output">
+      <UniqueIdentifier>{3f419baa-4605-40a6-88a8-97e36ae1879a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\airport.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\bus.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\e4_rk_ha.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\guest.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\hotel.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\passenger.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\rangen.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\event_scheduling.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\process.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\airport.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\bus.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\e4_rk_ha.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\guest.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\hotel.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\passenger.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\rangen.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\event_scheduling.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\process.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\simulation.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\students_t_distribution.h">
+      <Filter>src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="doxygen.cfg" />
+    <None Include="doc\e4_rk_ha_z1.pdf">
+      <Filter>doc</Filter>
+    </None>
+    <None Include="doc\e4_rk_ha_z2.pdf">
+      <Filter>doc</Filter>
+    </None>
+    <None Include="doc\e4_rk_ha_z3.pdf">
+      <Filter>doc</Filter>
+    </None>
+    <None Include="doc\e4_rk_ha_z4.pdf">
+      <Filter>doc</Filter>
+    </None>
+  </ItemGroup>
+</Project>

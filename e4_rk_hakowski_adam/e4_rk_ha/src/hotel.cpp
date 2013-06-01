@@ -13,6 +13,7 @@ Hotel::Hotel()
 	
 	numOfwait=numOftaxi=numOflost=0;
 	meanLength=length=lastTime=TimeWait=0;
+	maxTimeTaxi=20;
 	if(id>9)
 	{
 	cerr<<"Nie mozna utworzyæ wiêcej ni¿ 4 hotele"<<endl;
@@ -72,17 +73,18 @@ void Hotel::transfer(Bus* pBus)
 
 	while(pBus->isFree() && queGuest.size()!=0)
 	{
-			if((queGuest.top()->getTripTime())<getMaxTripTime())
+		
+		if(Clock-queGuest.top()->getArrival()>queGuest.top()->getTripTime() || Clock-queGuest.top()->getArrival()+maxTimeTrip> queGuest.top()->getTripTime()  )
 			{
-				if((queGuest.top()->getTripTime())>=maxTimeTaxi)
+				if(Clock-queGuest.top()->getArrival()+maxTimeTaxi<=queGuest.top()->getTripTime())
 				{
 					numOftaxi++;
 				}
-				else 
+				else
 				{
 					numOflost++;
 				}
-				TimeWait+=(Clock-queGuest.top()->arrival);
+				TimeWait+=(Clock-queGuest.top()->getArrival());
 				meanLength+=(Clock-lastTime)*length--;
 				lastTime=Clock;
 				queGuest.pop();
@@ -90,33 +92,34 @@ void Hotel::transfer(Bus* pBus)
 			else	
 			{
 				pBus->addGuest(queGuest.top());
-				TimeWait+=(Clock-queGuest.top()->arrival);
+				TimeWait+=(Clock-queGuest.top()->getArrival());
 				meanLength+=(Clock-lastTime)*length--;
 				lastTime=Clock;
 				queGuest.pop();
 				pBus->updateNumOfBusy();
 			}
 	}
-	
+
+	/*
 	if(queGuest.size()!=0)
 	{
-	if((queGuest.top()->getTripTime())<getMaxTripTime())
+	if(Clock-queGuest.top()->getArrival()>queGuest.top()->getTripTime() || Clock-queGuest.top()->getArrival()+maxTimeTrip> queGuest.top()->getTripTime())
 			{
-				if((queGuest.top()->getTripTime())>=maxTimeTaxi)
+				if(Clock-queGuest.top()->getArrival()+maxTimeTaxi<queGuest.top()->getTripTime())
 				{
-					numOftaxi++;
+				numOftaxi++;
 				}
-				else 
+				else
 				{
 					numOflost++;
 				}
-				TimeWait+=(Clock-queGuest.top()->arrival);
+				TimeWait+=(Clock-queGuest.top()->getArrival());
 				meanLength+=(Clock-lastTime)*length--;
 				lastTime=Clock;
-					queGuest.pop();
+				queGuest.pop();
 			}
 	}
-	
+	*/
 }
 //-----------------------------------------------
 void Hotel::execute()
@@ -137,7 +140,9 @@ void Hotel::execute()
 			active=true;
 			break;
 		case 1:
-			addGuest(new Guest((1.5*Uniform(seed)+2)*60,Clock));
+			//(1.5*Uniform(seed)+2)*60
+			
+			addGuest(new Guest(100*Uniform(seed)+80,Clock));
 			phase=0;
 			active=false;
 			break;

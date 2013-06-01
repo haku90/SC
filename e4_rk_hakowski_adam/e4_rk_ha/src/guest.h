@@ -21,6 +21,8 @@ public:
 		Guest(double timeTrip,double start);
 		//! Zwraca czas w jakim goœæ musi dotrzeæ na lotnisko.
 		double getTripTime(){return tripTime;}
+		//! Zwraca czas przybycia.
+		double getArrival(){return arrival;}
 	
 private:
 

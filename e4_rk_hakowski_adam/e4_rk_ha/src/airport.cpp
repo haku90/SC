@@ -83,6 +83,7 @@ void AirPort::execute()
 	double lambda=5.;
 	long double gen=0;
 	bool active=true;
+
 	while (active)
 	{
 		switch(phase)
@@ -93,8 +94,8 @@ void AirPort::execute()
 			phase=1;
 			break;
 		case 1:
-			
-			for(int i=0;i<(int)5*Uniform(seed)+8;i++)
+			int numPass=static_cast<int>(5*Uniform(seed)+8);
+			for(int i=0;i<numPass;i++)
 			{
 				gen=Uniform()+1;
 				if(gen>=1 && gen<1.2)
@@ -109,7 +110,6 @@ void AirPort::execute()
 			}
 			active=false;
 			phase=0;
-			
 			break;
 		
 		}
