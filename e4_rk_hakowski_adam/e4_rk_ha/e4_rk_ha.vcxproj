@@ -103,6 +103,7 @@
     <None Include="doc\e4_rk_ha_z1.pdf" />
     <None Include="doc\e4_rk_ha_z2.pdf" />
     <None Include="doc\e4_rk_ha_z3.pdf" />
+    <None Include="doc\e4_rk_ha_z4.pdf" />
     <None Include="doxygen.cfg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

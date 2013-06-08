@@ -17,7 +17,6 @@ class Bus:public process
 {
 public:
 	Bus();									//!< Konstruktor.
-	
 	list<Passsenger*> lstPass;				//!< Lista przechowuj¹ca pasa¿erów.
 	list<Guest*> lstGuest;					//!< Lista przechowuj¹ca goœæi.
 
@@ -33,16 +32,14 @@ public:
 
 	void execute();							//!< Metoda wykonania dla interakcji procesów.
 	//! Czysci autobus.
-	void clrB();
+	void clr();
 private:
 
 	int numOfbusy;							//!< Iloœæ zajêtych miejsc.
 	int id;									//!< Numer autobusu.
-	int idStop;								//!< Numer przystanku.
 
 	static const int numOfseats=60;			//!< Iloœæ siedzeñ.
 	static int numOfbus;					//!< Iloœæ autobusów.
-
 };
 /////////////////////////////////////////////////
 //***********************************************

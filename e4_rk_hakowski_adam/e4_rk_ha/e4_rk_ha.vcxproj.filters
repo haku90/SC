@@ -90,5 +90,8 @@
     <None Include="doc\e4_rk_ha_z3.pdf">
       <Filter>doc</Filter>
     </None>
+    <None Include="doc\e4_rk_ha_z4.pdf">
+      <Filter>doc</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -34,11 +34,17 @@ extern event_list* ag;
 #include "rangen.h"
 
 extern	AirPort ap;
-extern	Bus *arrayBus[5];
+extern	Bus b1;
+extern Bus b2;
+extern Bus b3;
+extern Bus b4;
+extern Bus b5;
 
 
-extern Hotel *arrayHotel[4];
-
+extern Hotel h1;
+extern Hotel h2;
+extern Hotel h3;
+extern Hotel h4;
 extern int seed;
 //-----------------------------------------------
 

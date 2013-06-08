@@ -21,93 +21,89 @@ enum
 //---------------------------------------------
 void simulation()
 {
-	for(int i=0;i<4;i++)
-		arrayHotel[i]=new Hotel();
 
-	for(int i=0;i<5;i++)
-		arrayBus[i]=new Bus();
-
+	
 	process* current=NULL;
 
 	int M=10;
-	double timeSimulation=8000;			// Czas zakoñczenia symulacji.
-	double avgBusOnAirport=0;			// Œrednia liczba autobusów na lotnisku.
-	double avgPepoleOnStop=0;			// Œrednia liczba ludzi na przystanku.
-	double start=0;						// Czas zakoñczenia fazy pocz¹tkowej.
+	double timeSimulation=8000;			//!< Czas zakoñczenia symulacji.
+	double avgBusOnAirport=0;			//!< Œrednia liczba autobusów na lotnisku.
+	double avgPepoleOnStop=0;			//!< Œrednia liczba ludzi na przystanku.
+	double start=0;						//!< Czas zakoñczenia fazy pocz¹tkowej.
 	
 
 	
-	double estAvgBusAirPort=0;			// Estymata œredniej liczby autobusów na lotnisku.
+	double estAvgBusAirPort=0;			//!< Estymata œredniej liczby autobusów na lotnisku.
 	double estVarBusAirPort=0;
 	double estSigmaBusAirPort=0;
 	double deltaBusAirPort=0;
 
-	double estAvgPassAirPort=0;			// Estymata œredniej liczby pasa¿erów na lotnisku.
+	double estAvgPassAirPort=0;			//!< Estymata œredniej liczby pasa¿erów na lotnisku.
 	double estVarPassAirPort=0;
 	double estSigmaPassAirPort=0;
 	double deletaPassAirPort=0;
 
-	double estAvgGuestH1=0;				// Estymata œredniej liczby goœci w hotelu 1.
+	double estAvgGuestH1=0;				//!< Estymata œredniej liczby goœci w hotelu 1.
 	double estVartGuestH1=0;
 	double estSigmaGuestH1=0;
 	double deltaGuestH1=0;
 
-	double estAvgGuestH2=0;				// Estymata œredniej liczby goœci w hotelu 2.
+	double estAvgGuestH2=0;				//!< Estymata œredniej liczby goœci w hotelu 2.
 	double estVartGuestH2=0;
 	double estSigmaGuestH2=0;
 	double deltaGuestH2=0;
 
-	double estAvgGuestH3=0;				// Estymata œredniej liczby goœci w hotelu 3.
+	double estAvgGuestH3=0;				//!< Estymata œredniej liczby goœci w hotelu 3.
 	double estVartGuestH3=0;
 	double estSigmaGuestH3=0;
 	double deltaGuestH3=0;
 
-	double estAvgGuestH4=0;				// Estymata œredniej liczby goœci w hotelu 4.
+	double estAvgGuestH4=0;				//!< Estymata œredniej liczby goœci w hotelu 4.
 	double estVartGuestH4=0;
 	double estSigmaGuestH4=0;
 	double deltaGuestH4=0;
 
-	double estAvgPassTimeAirPort=0;		// Estymata œredniego czasu oczekiwania pasa¿erów na lotnisku.
+	double estAvgPassTimeAirPort=0;		//!< Estymata œredniego czasu oczekiwania pasa¿erów na lotnisku.
 	double estVarPassTimeAirPort=0;
 	double estSigmaTimePassAirPort=0;
 	double deltaPassTime=0;
 
-	double estAvgGuestTimeH1=0;			// Estymata œredniego czasu oczekiwania goœci w hotelu 1.
+	double estAvgGuestTimeH1=0;			//!< Estymata œredniego czasu oczekiwania goœci w hotelu 1.
 	double estVartGuestTimeH1=0;
 	double estSigmaGuestTimeH1=0;
 	double deltaGuestTimeH1=0;
 
-	double estAvgGuestTimeH2=0;			// Estymata œredniego czasu oczekiwania goœci w hotelu 2.
+	double estAvgGuestTimeH2=0;			//!< Estymata œredniego czasu oczekiwania goœci w hotelu 2.
 	double estVartGuestTimeH2=0;
 	double estSigmaGuestTimeH2=0;
 	double deltaGuestTimeH2=0;
 
-	double estAvgGuestTimeH3=0;			// Estymata œredniego czasu oczekiwania goœci w hotelu 3.
+	double estAvgGuestTimeH3=0;			//!< Estymata œredniego czasu oczekiwania goœci w hotelu 3.
 	double estVartGuestTimeH3=0;
 	double estSigmaGuestTimeH3=0;
 	double deltaGuestTimeH3=0;
 
-	double estAvgGuestTimeH4=0;			// Estymata œredniego czasu oczekiwania goœci w hotelu 4.
+	double estAvgGuestTimeH4=0;			//!< Estymata œredniego czasu oczekiwania goœci w hotelu 4.
 	double estVartGuestTimeH4=0;
 	double estSigmaGuestTimeH4=0;
 	double deltaGuestTimeH4=0;
 
-	double estAvgTaxiH1=0;				// Estymata œredniej liczby wzywancyh taksówek w hotelu 1.
+	double estAvgTaxiH1=0;				//!< Estymata œredniej liczby wzywancyh taksówek w hotelu 1.
 	double estVarTaxiH1=0;				
 	double estSigmaTaxiH1=0;
 	double deltaTaxiH1=0;
 
-	double estAvgTaxiH2=0;				// Estymata œredniej liczby wzywancyh taksówek w hotelu 2.
+	double estAvgTaxiH2=0;				//!< Estymata œredniej liczby wzywancyh taksówek w hotelu 2.
 	double estVarTaxiH2=0;
 	double estSigmaTaxiH2=0;
 	double deltaTaxiH2=0;
 
-	double estAvgTaxiH3=0;				// Estymata œredniej liczby wzywancyh taksówek w hotelu 3.
+	double estAvgTaxiH3=0;				//!< Estymata œredniej liczby wzywancyh taksówek w hotelu 3.
 	double estVarTaxiH3=0;
 	double estSigmaTaxiH3=0;
 	double deltaTaxiH3=0;
 
-	double estAvgTaxiH4=0;				// Estymata œredniej liczby wzywancyh taksówek w hotelu 4.
+	double estAvgTaxiH4=0;				//!< Estymata œredniej liczby wzywancyh taksówek w hotelu 4.
 	double estVarTaxiH4=0;
 	double estSigmaTaxiH4=0;
 	double deltaTaxiH4=0;
@@ -120,7 +116,6 @@ void simulation()
 	for(int i=0;i<M;i++)
 	{
 		
-	
 		
 		//stats << "time" << ';' << "SrLLB" << ';' <<"SrLL"<< ';'<< "SrLh1" <<';'<<"SrLh2" <<';'<<"SrLh3" <<';'<<"SrLh4" <<endl;
 		//stats1 <<"time" << ';' << "SrCL" << ';'<< "SrCh1" <<';'<<"SrCh2" <<';'<<"SrCh3" <<';'<<"SrCh4" <<endl;
@@ -128,12 +123,17 @@ void simulation()
 		
 		Clock=0.;
 		ap.activate(0);
-		for(int i=0;i<5;i++)
-		arrayBus[i]->activate(0);
-			
-		for(int i=0;i<4;i++)
-			arrayHotel[i]->activate(0);
 
+		b1.activate(0);
+		b2.activate(0);
+		b3.activate(0);
+		b4.activate(0);
+		b5.activate(0);
+
+		h1.activate(0);
+		h2.activate(0);
+		h3.activate(0);
+		h4.activate(0);
 		//Faza poczatkowa.
 		
 		while(Clock<2500)
@@ -157,9 +157,9 @@ void simulation()
 		ag->remove_first();
 		current->execute();
 		
-	//stats << Clock << ';' <<ap.meanLengthBus/(Clock-start) << ';' << ap.meanLength/(Clock-start)<< ';'<<arrayHotel[0]->meanLength/(Clock-start)<<';'<<arrayHotel[1]->meanLength/(Clock-start)<<';'<<arrayHotel[2]->meanLength/(Clock-start)<<';'<<arrayHotel[3]->meanLength/(Clock-start)<<endl;
-	//stats1 << Clock << ';' << ap.getWaitTime()/ap.getNumOfPassAll() << ';' << arrayHotel[0]->getTimeWait()/arrayHotel[0]->getNumOfWait()<<';'<<arrayHotel[1]->getTimeWait()/arrayHotel[1]->getNumOfWait()<<';'<<arrayHotel[2]->getTimeWait()/arrayHotel[2]->getNumOfWait()<<';'<<arrayHotel[3]->getTimeWait()/arrayHotel[3]->getNumOfWait()<<endl;
-	//stats2<<Clock<<';'<<arrayHotel[0]->numOftaxi/((Clock-start)/60)<<';'<<arrayHotel[1]->numOftaxi/((Clock-start)/60)<<';'<<arrayHotel[2]->numOftaxi/((Clock-start)/60)<<';'<<arrayHotel[3]->numOftaxi/((Clock-start)/60)<<endl;
+	//stats << Clock << ';' <<ap.meanLengthBus/(Clock-start) << ';' << ap.meanLength/(Clock-start)<< ';'<<h1.meanLength/(Clock-start)<<';'<<h2.meanLength/(Clock-start)<<';'<<h3.meanLength/(Clock-start)<<';'<<h4.meanLength/(Clock-start)<<endl;
+	//stats1 << Clock << ';' << ap.getWaitTime()/ap.getNumOfPassAll() << ';' << h1.getTimeWait()/h1.getNumOfWait()<<';'<<h2.getTimeWait()/h2.getNumOfWait()<<';'<<h3.getTimeWait()/h3.getNumOfWait()<<';'<<h4.getTimeWait()/h4.getNumOfWait()<<endl;
+	//stats2<<Clock<<';'<<h1.numOftaxi/((Clock-start)/60)<<';'<<h2.numOftaxi/((Clock-start)/60)<<';'<<h3.numOftaxi/((Clock-start)/60)<<';'<<h4.numOftaxi/((Clock-start)/60)<<endl;
 	}
 	
 	
@@ -173,24 +173,24 @@ void simulation()
 	cout<<"Srednia liczba autobusow na lotnisku "<<ap.meanLengthBus/(Clock-start)<<endl;
 	cout<<"........................................................................"<<endl;
 	cout<<"Srednia liczba pasazerow  na lotnisku : "<<ap.meanLength/(Clock-start)<<endl;
-	cout<<"Srednia liczba gosci czekajacych na przystanku w hotelu1 : "<<arrayHotel[0]->meanLength/(Clock-start)<<endl;
-	cout<<"Srednia liczba gosci czekajacych na przystanku w hotelu2 : "<<arrayHotel[1]->meanLength/(Clock-start)<<endl;
-	cout<<"Srednia liczba gosci czekajacych na przystanku w hotelu3 : "<<arrayHotel[2]->meanLength/(Clock-start)<<endl;
-	cout<<"Srednia liczba gosci czekajacych na przystanku w hotelu4 : "<<arrayHotel[3]->meanLength/(Clock-start)<<endl;
+	cout<<"Srednia liczba gosci czekajacych na przystanku w hotelu1 : "<<h1.meanLength/(Clock-start)<<endl;
+	cout<<"Srednia liczba gosci czekajacych na przystanku w hotelu2 : "<<h2.meanLength/(Clock-start)<<endl;
+	cout<<"Srednia liczba gosci czekajacych na przystanku w hotelu3 : "<<h3.meanLength/(Clock-start)<<endl;
+	cout<<"Srednia liczba gosci czekajacych na przystanku w hotelu4 : "<<h4.meanLength/(Clock-start)<<endl;
 	cout<<"........................................................................"<<endl;
 	cout<<"Srednia czas oczekiwania na lotnisku : "<<(ap.getWaitTime()/ap.getNumOfPassAll())<<endl;
-	cout<<"Srednia czas oczekiwania na przystanku w hotelu 1 : "<<(arrayHotel[0]->getTimeWait()/arrayHotel[0]->getNumOfWait())<<endl;
-	cout<<"Srednia czas oczekiwania na przystanku w hotelu 2 : "<<(arrayHotel[1]->getTimeWait()/arrayHotel[1]->getNumOfWait())<<endl;	
-	cout<<"Srednia czas oczekiwania na przystanku w hotelu 3 : "<<(arrayHotel[2]->getTimeWait()/arrayHotel[2]->getNumOfWait())<<endl;
-	cout<<"Srednia czas oczekiwania na przystanku w hotelu 4 : "<<(arrayHotel[2]->getTimeWait()/arrayHotel[2]->getNumOfWait())<<endl;
+	cout<<"Srednia czas oczekiwania na przystanku w hotelu 1 : "<<(h1.getTimeWait()/h1.getNumOfWait())<<endl;
+	cout<<"Srednia czas oczekiwania na przystanku w hotelu 2 : "<<(h2.getTimeWait()/h2.getNumOfWait())<<endl;	
+	cout<<"Srednia czas oczekiwania na przystanku w hotelu 3 : "<<(h3.getTimeWait()/h3.getNumOfWait())<<endl;
+	cout<<"Srednia czas oczekiwania na przystanku w hotelu 4 : "<<(h4.getTimeWait()/h4.getNumOfWait())<<endl;
 	cout<<"........................................................................"<<endl;
-	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 1: "<<arrayHotel[0]->numOftaxi/((Clock-start)/60)<<endl;
-	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 2: "<<arrayHotel[1]->numOftaxi/((Clock-start)/60)<<endl;
-	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 3: "<<arrayHotel[2]->numOftaxi/((Clock-start)/60)<<endl;
-	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 4: "<<arrayHotel[3]->numOftaxi/((Clock-start)/60)<<endl;
+	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 1: "<<h1.numOftaxi/((Clock-start)/60)<<endl;
+	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 2: "<<h2.numOftaxi/((Clock-start)/60)<<endl;
+	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 3: "<<h3.numOftaxi/((Clock-start)/60)<<endl;
+	cout<<"Srednia liczba wezwanych taksowek na 1h w hotelu 4: "<<h4.numOftaxi/((Clock-start)/60)<<endl;
 	cout<<"........................................................................"<<endl;
-	cout<<"Liczba gosci straconych:  "<<arrayHotel[0]->numOflost+arrayHotel[1]->numOflost+arrayHotel[2]->numOflost+arrayHotel[3]->numOflost<<endl;
-	cout<<"liczba gosci w systemie: "<<arrayHotel[0]->getNumOfWait()+arrayHotel[1]->getNumOfWait()+arrayHotel[2]->getNumOfWait()+arrayHotel[3]->getNumOfWait()<<endl;
+	cout<<"Liczba gosci straconych:  "<<h1.numOflost+h2.numOflost+h3.numOflost+h4.numOflost<<endl;
+	cout<<"liczba gosci w systemie: "<<h1.getNumOfWait()+h2.getNumOfWait()+h3.getNumOfWait()+h4.getNumOfWait()<<endl;
 	cout<<"liczba pasazerow w systemie: "<<ap.getNumOfPassAll()<<endl;
 	
 	estAvgBusAirPort+=ap.meanLengthBus/(Clock-start);
@@ -199,45 +199,45 @@ void simulation()
 	estAvgPassAirPort+=ap.meanLength/(Clock-start);
 	estVarPassAirPort+=ap.meanLength/(Clock-start)*ap.meanLength/(Clock-start);
 
-	estAvgGuestH1+=arrayHotel[0]->meanLength/(Clock-start);
-	estVartGuestH1+=arrayHotel[0]->meanLength/(Clock-start)*arrayHotel[0]->meanLength/(Clock-start);
+	estAvgGuestH1+=h1.meanLength/(Clock-start);
+	estVartGuestH1+=h1.meanLength/(Clock-start)*h1.meanLength/(Clock-start);
 
-	estAvgGuestH2+=arrayHotel[1]->meanLength/(Clock-start);
-	estVartGuestH2+=arrayHotel[1]->meanLength/(Clock-start)*arrayHotel[1]->meanLength/(Clock-start);
+	estAvgGuestH2+=h2.meanLength/(Clock-start);
+	estVartGuestH2+=h2.meanLength/(Clock-start)*h2.meanLength/(Clock-start);
 
-	estAvgGuestH3+=arrayHotel[2]->meanLength/(Clock-start);
-	estVartGuestH3+=arrayHotel[2]->meanLength/(Clock-start)*arrayHotel[2]->meanLength/(Clock-start);
+	estAvgGuestH3+=h3.meanLength/(Clock-start);
+	estVartGuestH3+=h3.meanLength/(Clock-start)*h3.meanLength/(Clock-start);
 
-	estAvgGuestH4+=arrayHotel[3]->meanLength/(Clock-start);
-	estVartGuestH4+=arrayHotel[3]->meanLength/(Clock-start)*arrayHotel[3]->meanLength/(Clock-start);
+	estAvgGuestH4+=h4.meanLength/(Clock-start);
+	estVartGuestH4+=h4.meanLength/(Clock-start)*h4.meanLength/(Clock-start);
 
 	estAvgPassTimeAirPort+=ap.getWaitTime()/ap.getNumOfPassAll();
 	estVarPassTimeAirPort+=ap.getWaitTime()/ap.getNumOfPassAll()*ap.getWaitTime()/ap.getNumOfPassAll();
 
-	estAvgGuestTimeH1+=arrayHotel[0]->getTimeWait()/arrayHotel[0]->getNumOfWait();
-	estVartGuestTimeH1+=arrayHotel[0]->getTimeWait()/arrayHotel[0]->getNumOfWait()*arrayHotel[0]->getTimeWait()/arrayHotel[0]->getNumOfWait();
+	estAvgGuestTimeH1+=h1.getTimeWait()/h1.getNumOfWait();
+	estVartGuestTimeH1+=h1.getTimeWait()/h1.getNumOfWait()*h1.getTimeWait()/h1.getNumOfWait();
 
-	estAvgGuestTimeH2+=arrayHotel[1]->getTimeWait()/arrayHotel[1]->getNumOfWait();
-	estVartGuestTimeH2+=arrayHotel[1]->getTimeWait()/arrayHotel[1]->getNumOfWait()*arrayHotel[1]->getTimeWait()/arrayHotel[1]->getNumOfWait();
+	estAvgGuestTimeH2+=h2.getTimeWait()/h2.getNumOfWait();
+	estVartGuestTimeH2+=h2.getTimeWait()/h2.getNumOfWait()*h2.getTimeWait()/h2.getNumOfWait();
 
-	estAvgGuestTimeH3+=arrayHotel[2]->getTimeWait()/arrayHotel[2]->getNumOfWait();
-	estVartGuestTimeH3+=arrayHotel[2]->getTimeWait()/arrayHotel[2]->getNumOfWait()*arrayHotel[2]->getTimeWait()/arrayHotel[2]->getNumOfWait();
+	estAvgGuestTimeH3+=h3.getTimeWait()/h3.getNumOfWait();
+	estVartGuestTimeH3+=h3.getTimeWait()/h3.getNumOfWait()*h3.getTimeWait()/h3.getNumOfWait();
 
-	estAvgGuestTimeH4+=arrayHotel[3]->getTimeWait()/arrayHotel[3]->getNumOfWait();
-	estVartGuestTimeH4+=arrayHotel[3]->getTimeWait()/arrayHotel[3]->getNumOfWait()*arrayHotel[3]->getTimeWait()/arrayHotel[3]->getNumOfWait();
+	estAvgGuestTimeH4+=h4.getTimeWait()/h4.getNumOfWait();
+	estVartGuestTimeH4+=h4.getTimeWait()/h4.getNumOfWait()*h4.getTimeWait()/h4.getNumOfWait();
 
-	estAvgTaxiH1+=arrayHotel[0]->numOftaxi/((Clock-start)/60);
-	estVarTaxiH1+=arrayHotel[0]->numOftaxi/((Clock-start)/60)*arrayHotel[0]->numOftaxi/((Clock-start)/60);
+	estAvgTaxiH1+=h1.numOftaxi/((Clock-start)/60);
+	estVarTaxiH1+=h1.numOftaxi/((Clock-start)/60)*h1.numOftaxi/((Clock-start)/60);
 
-	estAvgTaxiH2+=arrayHotel[1]->numOftaxi/((Clock-start)/60);
-	estVarTaxiH2+=arrayHotel[1]->numOftaxi/((Clock-start)/60)*arrayHotel[1]->numOftaxi/((Clock-start)/60);
+	estAvgTaxiH2+=h2.numOftaxi/((Clock-start)/60);
+	estVarTaxiH2+=h2.numOftaxi/((Clock-start)/60)*h2.numOftaxi/((Clock-start)/60);
 
-	estAvgTaxiH3+=arrayHotel[2]->numOftaxi/((Clock-start)/60);
-	estVarTaxiH3+=arrayHotel[2]->numOftaxi/((Clock-start)/60)*arrayHotel[2]->numOftaxi/((Clock-start)/60);
+	estAvgTaxiH3+=h3.numOftaxi/((Clock-start)/60);
+	estVarTaxiH3+=h3.numOftaxi/((Clock-start)/60)*h3.numOftaxi/((Clock-start)/60);
 
-	estAvgTaxiH4+=arrayHotel[3]->numOftaxi/((Clock-start)/60);
-	estVarTaxiH4+=arrayHotel[3]->numOftaxi/((Clock-start)/60)*arrayHotel[3]->numOftaxi/((Clock-start)/60);
-	
+	estAvgTaxiH4+=h4.numOftaxi/((Clock-start)/60);
+	estVarTaxiH4+=h4.numOftaxi/((Clock-start)/60)*h4.numOftaxi/((Clock-start)/60);
+
 
 	resetSim();
 	seed++;
@@ -364,20 +364,27 @@ void resetSim()
 	delete ag;
 	ag=new event_list();
 	
-	ap.clrA();
-	
-	for(int i=0;i<4;i++)
-		arrayHotel[i]->clrH();
+	ap.clr();
+	h1.clr();
+	h2.clr();
+	h3.clr();
+	h4.clr();
 
-	for(int i=0;i<5;i++)
-		arrayBus[i]->clrB();
+	b1.clr();
+	b2.clr();
+	b3.clr();
+	b4.clr();
+	b5.clr();
+	
 }
 //---------------------------------------------
 void resetStats()
 {
 	ap.clrStats();
-	for(int i=0;i<4;i++)
-		arrayHotel[i]->clrStats();
+	h1.clrStats();
+	h2.clrStats();
+	h3.clrStats();
+	h4.clrStats();
 }
 //---------------------------------------------
 

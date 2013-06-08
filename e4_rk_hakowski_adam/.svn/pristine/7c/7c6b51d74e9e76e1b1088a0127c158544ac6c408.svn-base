@@ -99,13 +99,13 @@ void AirPort::execute()
 			{
 				gen=Uniform()+1;
 				if(gen>=1 && gen<1.2)
-					id=1;
+					id=6;
 				if(gen>=1.2 && gen<1.4)
-					id=2;
+					id=7;
 				if(gen>=1.4&& gen<1.70)
-					id=3;
+					id=8;
 				if(gen>=1.7&&gen<2.0)
-					id=4;
+					id=9;
 				ap.addPass(new Passsenger(Clock,id));
 			}
 			active=false;
@@ -125,7 +125,7 @@ void AirPort::clrStats()
 	meanLength=0;
 }
 //----------------------------------------------
-void AirPort::clrA()
+void AirPort::clr()
 {
 	while(quePass.size()!=0)
 	{
